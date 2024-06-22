@@ -16,8 +16,8 @@ export default function RegisterForm() {
   return (<form className={styles.form} action={formAction}>
 	<input type="text" placeholder="User Name" name="userName"/>
 	<input type="text" placeholder="E-Mail Address" name="email"/>
-	<input type="text" placeholder="Password" name="passWord"/>
-	<input type="text" placeholder="Retype password" name="rePassWord"/>
+	<input type="password" placeholder="Password" name="passWord"/>
+	<input type="password" placeholder="Retype password" name="rePassWord"/>
 	{ state?.error }
 	<button>Register</button>
 	</form>)

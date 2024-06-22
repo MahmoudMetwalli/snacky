@@ -15,7 +15,7 @@ export default function LogInForm() {
 	  }, [state?.success, router]);
   return (<form className={styles.form} action={formAction}>
 	<input type="text" placeholder="E-Mail Address" name="email"/>
-	<input type="text" placeholder="Password" name="password"/>
+	<input type="password" placeholder="Password" name="password"/>
 	{ state?.error }
 	<button>Log in</button>
 	</form>)
