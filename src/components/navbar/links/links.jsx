@@ -31,6 +31,7 @@ const Links = ({ session }) => {
   return (
     <div className={styles.container}>
       <div className={styles.links}>
+        {session? (<div className={styles.hello}> Hello,<br></br>{session.user.email}</div>):(<div></div>)}
         {links.map(link => (
           <NavLink item={link} key={link.title} />
         ))}

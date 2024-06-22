@@ -86,3 +86,8 @@ export async function getUserFromDb(email, password) {
 export async function logOut(previousState, formData) {
   await signOut();
 }
+
+export async function getUserName(email) {
+  const user = await sql`SELECT * FROM users WHERE email = ${email};`
+  return user.rows[0].username;
+}
