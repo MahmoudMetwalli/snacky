@@ -1,0 +1,55 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.textContainer {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.title {
+	font-size: 50px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.desc {
+	font-size: 30px;
+	font-weight: 500;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.buttons {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.button {
+	padding: 10px;
+	min-height: 50px;
+	min-width: 160px;
+	cursor: pointer;
+	border: none;
+	border-radius: 5px;
+	max-height: 50px;
+}
+
+.button:first-child {
+	background-color: blue;
+	color: white;
+}
+.brands {
+	width: 500px;
+	height: 500px;
+	position: absolute;
+	right: 0;
+}

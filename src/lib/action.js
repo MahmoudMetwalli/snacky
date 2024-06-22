@@ -2,6 +2,7 @@
 
 import { sql } from "@vercel/postgres";
 import { signIn } from "../../auth";
+import { signOut } from "../../auth";
 import { redirect } from "next/navigation";
 const bcrypt = require('bcrypt');
 
@@ -57,7 +58,7 @@ export async function logIn(previousState, formData) {
 	  return {error: "Both e-mail and password are required"};
   }
   try {
-    await signIn("credentials", { email, password },{ redirectTo: "/" });
+    await signIn("credentials", { email, password });
   } catch (err) {
     if (err.type === "CallbackRouteError") {
       return { error: "Invalid email or password" };
@@ -80,4 +81,8 @@ export async function getUserFromDb(email, password) {
 
   if (!isPasswordCorrect) throw new Error("Wrong credentials!");
   return user.rows[0];
+}
+
+export async function logOut(previousState, formData) {
+  await signOut();
 }
