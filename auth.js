@@ -16,7 +16,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
       // logic to verify if user exists
       const user = await getUserFromDb(credentials.email, credentials.password);
-      console.log(user);
       return user;
     },
   }),],callbacks: {
