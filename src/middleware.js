@@ -16,7 +16,7 @@ export function middleware(request) {
     return NextResponse.next();};
   if (request.nextUrl.pathname.startsWith('/register')) {
     return NextResponse.next();};
-  return NextResponse.redirect(new URL('/', request.url))
+  return NextResponse.redirect(new URL('/login', request.url));
 }
  
 export const config = {
