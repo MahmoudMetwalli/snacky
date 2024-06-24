@@ -61,7 +61,7 @@ export async function logIn(previousState, formData) {
     await signIn("credentials", { email, password });
   } catch (err) {
     if (err.type === "CallbackRouteError") {
-      return { error: "Invalid email or password" };
+      return { error: "Something went wrong, please re-check email and password" };
     }
   }
   redirect('/');
