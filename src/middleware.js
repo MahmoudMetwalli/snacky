@@ -4,7 +4,6 @@ import { cookies } from "next/headers";
 export function middleware(request) {
   const cookieStore = cookies();
   const hasCookie = cookieStore.has('authjs.session-token');
-  console.log(request.url);
   if (hasCookie) {
     if (request.nextUrl.pathname.startsWith('/login')) {
       return NextResponse.redirect(new URL('/', request.url))};
