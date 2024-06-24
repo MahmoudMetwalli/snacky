@@ -5,6 +5,7 @@ import { register } from '@/lib/action';
 import { useFormState } from "react-dom";
 import { useRouter } from "next/navigation";
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 export default function RegisterForm() {
 
@@ -18,6 +19,7 @@ export default function RegisterForm() {
 	<input type="text" placeholder="E-Mail Address" name="email"/>
 	<input type="password" placeholder="Password" name="passWord"/>
 	<input type="password" placeholder="Retype password" name="rePassWord"/>
+	<p>Already have an account ?<Link href='/login' className={styles.signin}>  Click here to sign in </Link></p>
 	{ state?.error }
 	<button>Register</button>
 	</form>)
