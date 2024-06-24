@@ -16,18 +16,23 @@ const links = [
   {
     title: 'Order',
     path: '/order'
+  }
+];
+const auths = [
+  {
+    title: 'LogIn',
+    path: '/login'
   },
   {
     title: 'Register',
     path: '/register'
-  }
-];
+  }];
 
 const Links = ({ session }) => {
   const [state, formAction] = useFormState(logOut, undefined);
   const [open, setOpen] = useState(false);
   // TEMPORARY
-  const admin = true;
+  const admin = false;
   return (
     <div className={styles.container}>
       <div className={styles.links}>
@@ -43,7 +48,9 @@ const Links = ({ session }) => {
             </form>
             </>
             )
-          : (<NavLink item={{ title: 'LogIn', path: '/login' }} />)}
+          : (<>{auths.map(auth => (
+            <NavLink item={auth} key={auth.title} />
+          ))}</>)}
       </div>
       <Image className={styles.menuButton} src='/newmenu.png' alt='' height={30} width={30} onClick={() => setOpen(prev => !prev)}/>
       { open && (<div className={styles.mobileLinks}>
