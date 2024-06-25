@@ -1,12 +1,12 @@
+import React from 'react';
 import styles from './footer.module.css';
-import Image from 'next/image';
 
-const Footer = () => {
+function Footer() {
   return (
     <div className={styles.container}>
-      <div className={styles.text}>All rights are reserved by Mahmoud Metwalli and Ahmed Ramzy</div>
+      <p className={styles.text}>Your footer content here ################################</p>
     </div>
   );
-};
+}
 
 export default Footer;
