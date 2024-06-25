@@ -12,6 +12,7 @@
 	border-radius: 5px;
 	border: none;
 	background-color: rgba(243, 233, 233, 0.66);
+	text-align: center;
 }
 
 .form input::placeholder {
