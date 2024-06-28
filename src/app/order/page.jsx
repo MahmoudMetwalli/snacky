@@ -3,75 +3,75 @@ import styles from './order.module.css';
 
 export default function OrderPage() {
 	const product = {
-		'fruitsalad': {
+		'Tropical Sunrise Fruit Medley': {
 			id: 1,
-			name: 'fruitsalad',
-			info: 'fresh and healthy',
-			price: 10,
-			photo: '/snackLogo.jpeg',
+			name: 'Tropical Sunrise Fruit Medley',
+			info: 'This vibrant fruit salad combines juicy pineapple, sweet mango, and tangy oranges, all bathed in a refreshing citrus syrup. The tropical flavors will transport you to a sunny beach paradise. Serve it at your next gathering, and watch your guests’ taste buds dance with delight',
+			price: 60,
+			photo: '/TropicalSunriseFruitMedley.jpeg',
 		},
-		'pizza': {
+		'Grilled Chicken Wrap': {
 			id: 2,
-			name: 'pizza',
-			info: 'fresh and healthy',
-			price: 15,
-			photo: '/snackLogo.jpeg',
+			name: 'Grilled Chicken Wrap',
+			info: 'Whole-grain wrap filled with grilled chicken, mixed greens, cucumber, and a zesty yogurt-based sauce. Perfect for a quick, protein-rich meal on the go.',
+			price: 110,
+			photo: '/GrilledChickenWrap.jpeg',
 		},
-		'hamburger': {
+		'Salmon Caesar Salad': {
 			id: 3,
-			name: 'hamburger',
-			info: 'fresh and healthy',
-			price: 20,
-			photo: '/snackLogo.jpeg',
+			name: 'Salmon Caesar Salad',
+			info: ' Grilled salmon fillet on a bed of romaine lettuce, with whole-grain croutons, Parmesan cheese, and a tangy Caesar dressing. Omega-3 goodness! and healthy',
+			price: 200,
+			photo: '/SalmonCaesarSalad.jpeg',
 		},
-		'hotdog': {
+		'Sweet Potato Tacos': {
 			id: 4,
-			name: 'hotdog',
-			info: 'fresh and healthy',
-			price: 10,
-			photo: '/snackLogo.jpeg',
+			name: 'Sweet Potato Tacos',
+			info: 'Soft corn tortillas filled with roasted sweet potatoes, black beans, avocado slices, and a squeeze of lime. Flavorful and fiber-rich.',
+			price: 90,
+			photo: '/SweetPotatoTacos.jpeg',
 		},
-		'icecream': {
+		'Greek Yogurt Parfait': {
 			id: 5,
-			name: 'icecream',
-			info: 'fresh and healthy',
-			price: 5,
-			photo: '/snackLogo.jpeg',
+			name: 'Greek Yogurt Parfait',
+			info: 'Layers of Greek yogurt, fresh berries, granola, and a drizzle of honey. A wholesome dessert or breakfast option.',
+			price: 70,
+			photo: '/GreekYogurtParfait.jpeg',
 		},
-		'pasta': {
+		'Green Smoothie Bowl': {
 			id: 6,
-			name: 'pasta',
-			info: 'fresh and healthy',
-			price: 10,
-			photo: '/snackLogo.jpeg',
+			name: 'Green Smoothie Bowl',
+			info: 'Blend spinach, banana, almond milk, and a scoop of protein powder. Top with sliced kiwi, chia seeds, and granola. Energizing and vibrant!',
+			price: 85,
+			photo: '/GreenSmoothieBowl.jpeg',
 		},
-		'popcorn': {
+		'Avocado Toast': {
 			id: 7,
-			name: 'popcorn',
-			info: 'fresh and healthy',
-			price: 5,
-			photo: '/snackLogo.jpeg',
+			name: 'Avocado Toast',
+			info: 'Whole-grain bread topped with smashed avocado, cherry tomatoes, and a sprinkle of chili flakes. Simple, satisfying, and rich in healthy fats.',
+			price: 100,
+			photo: '/AvocadoToast.jpeg',
 		},
-		'sandwich': {
+		'Veggie Power Bowl': {
 			id: 8,
-			name: 'sandwich',
-			info: 'fresh and healthy',
-			price: 10,
-			photo: '/snackLogo.jpeg',
+			name: 'Veggie Power Bowl',
+			info: 'A hearty mix of quinoa, roasted sweet potatoes, avocado, kale, and chickpeas, drizzled with lemon-tahini dressing. Nutrient-packed and delicious!',
+			price: 90,
+			photo: '/VeggiePowerBowl.jpeg',
 		},
-		'soup': {
+		'Mediterranean Quinoa Bowl': {
 			id: 9,
-			name: 'soup',
-			info: 'fresh and healthy',
-			price: 10,
-			photo: '/snackLogo.jpeg',
+			name: 'Mediterranean Quinoa Bowl',
+			info: 'Quinoa, cherry tomatoes, cucumber, olives, and feta cheese, drizzled with olive oil and lemon juice. Bursting with Mediterranean flavors',
+			price: 100,
+			photo: '/MediterraneanQuinoaBowl.jpeg',
 		},
-		'steak': {
+		'Zoodle Stir-Fry': {
 			id: 10,
-			name: 'steak',
-			info: 'fresh and healthy',
-			price: 25,
-			photo: '/snackLogo.jpeg',
+			name: 'Zoodle Stir-Fry',
+			info: 'Zucchini noodles stir-fried with tofu, broccoli, and snap peas in a light soy-ginger sauce. Low-carb and veggie-packed!',
+			price: 120,
+			photo: '/ZoodleStir-Fry.jpeg',
 		},
 	};
 
@@ -84,9 +84,9 @@ export default function OrderPage() {
 							<div className={styles.Image}><Image src={item.photo} alt='' width={100} height={100} /></div>
 						</>
 						<div className={styles.info}>
-							<h2>{item.name}</h2>
-							<p>{item.info}</p>
-							<p>${item.price}</p>
+							<h2 className={styles.name}>{item.name}</h2>
+							<p className={styles.text}>{item.info}</p>
+							<p>{item.price} L.E.</p>
 						</div>
 						<button className={styles.button}>Order</button>
 					</>

@@ -6,6 +6,10 @@
 	justify-content: center;
 	gap: 20px; /* Adds space between items */
 }
+.product {
+	width: 20%;
+	min-height: 600px;
+}
 
 .Image {
 	width: 20%;
@@ -28,6 +32,12 @@
 	box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
+.name {
+	min-height: 70px;
+}
+.text {
+	min-height: 200px;
+}
 .button {
 	margin-top: 10px;
 	padding: 10px 20px; /* More clickable area */
@@ -43,13 +53,19 @@
 	background-color: #0056b3; /* Darker shade on hover */
 }
 
-/* Responsive design adjustments */
-@media (max-width: 768px) {
+
+@media screen and (max-width: 1000px) {
+	.product {
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 760px) {
+	.product {
+		width: 100%;
+	}
 	.container {
 		flex-direction: column; /* Stack items vertically on smaller screens */
 	}
 
-	.Image {
-		width: 50%; /* Larger images on smaller screens */
-	}
 }

@@ -7,7 +7,7 @@
 }
 
 .container {
-	margin-top: 300px;
+	margin-top: 100%;
 	display: flex;
 	align-items: center;
 	gap: 20px;

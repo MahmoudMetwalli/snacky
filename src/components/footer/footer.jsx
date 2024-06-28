@@ -4,7 +4,7 @@ import styles from './footer.module.css';
 function Footer() {
   return (
     <div className={styles.container}>
-      <p className={styles.text}>Your footer content here ################################</p>
+      <p className={styles.text}>All rights are reserved by Ahmed Ramzy and Mahmoud Metwalli</p>
     </div>
   );
 }
