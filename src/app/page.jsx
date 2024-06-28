@@ -1,14 +1,21 @@
-import styles from './home.module.css'
+import styles from './home.module.css';
+import Link from 'next/link'; // Step 1: Import Link from next/link
 
 const Home = () => {
-  return <div>
-  <div className={styles.container}>
-    <div className={styles.textContainer}>
-      <h1 className={styles.title}>Feeling Snacky?</h1>
-      <p className={styles.desc}>Healthy snacks for a healthy life.</p>
+  return (
+    <div className={styles.container}>
+      <div className={styles.textContainer}>
+        <h1 className={styles.title}>Feeling Snacky?</h1>
+        <p className={styles.desc}>Healthy snacks for a healthy life.</p>
+        <div className={styles.buttons}>
+          <Link href="/order"> {/* Step 2: Wrap the button with Link and set href */}
+            <button className={styles.button}>Order Now</button>
+          </Link>
+          <button className={styles.button}>Learn More</button>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>;
+  );
 };
 
 export default Home;
