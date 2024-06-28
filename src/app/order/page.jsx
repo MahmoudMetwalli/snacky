@@ -38,40 +38,26 @@ export default function OrderPage() {
 			price: 70,
 			photo: '/GreekYogurtParfait.jpeg',
 		},
-		'Green Smoothie Bowl': {
-			id: 6,
-			name: 'Green Smoothie Bowl',
-			info: 'Blend spinach, banana, almond milk, and a scoop of protein powder. Top with sliced kiwi, chia seeds, and granola. Energizing and vibrant!',
-			price: 85,
-			photo: '/GreenSmoothieBowl.jpeg',
-		},
 		'Avocado Toast': {
-			id: 7,
+			id: 6,
 			name: 'Avocado Toast',
 			info: 'Whole-grain bread topped with smashed avocado, cherry tomatoes, and a sprinkle of chili flakes. Simple, satisfying, and rich in healthy fats.',
 			price: 100,
 			photo: '/AvocadoToast.jpeg',
 		},
 		'Veggie Power Bowl': {
-			id: 8,
+			id: 7,
 			name: 'Veggie Power Bowl',
 			info: 'A hearty mix of quinoa, roasted sweet potatoes, avocado, kale, and chickpeas, drizzled with lemon-tahini dressing. Nutrient-packed and delicious!',
 			price: 90,
 			photo: '/VeggiePowerBowl.jpeg',
 		},
 		'Mediterranean Quinoa Bowl': {
-			id: 9,
+			id: 8,
 			name: 'Mediterranean Quinoa Bowl',
 			info: 'Quinoa, cherry tomatoes, cucumber, olives, and feta cheese, drizzled with olive oil and lemon juice. Bursting with Mediterranean flavors',
 			price: 100,
 			photo: '/MediterraneanQuinoaBowl.jpeg',
-		},
-		'Zoodle Stir-Fry': {
-			id: 10,
-			name: 'Zoodle Stir-Fry',
-			info: 'Zucchini noodles stir-fried with tofu, broccoli, and snap peas in a light soy-ginger sauce. Low-carb and veggie-packed!',
-			price: 120,
-			photo: '/ZoodleStir-Fry.jpeg',
 		},
 	};
 
@@ -86,7 +72,7 @@ export default function OrderPage() {
 						<div className={styles.info}>
 							<h2 className={styles.name}>{item.name}</h2>
 							<p className={styles.text}>{item.info}</p>
-							<p>{item.price} L.E.</p>
+							<p>Price: {item.price} L.E.</p>
 						</div>
 						<button className={styles.button}>Order</button>
 					</>
