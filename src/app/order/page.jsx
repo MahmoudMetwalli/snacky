@@ -1,4 +1,7 @@
+"use client";
+import React, { useState } from 'react';
 import Image from 'next/image';
+import SearchBar from '@/components/search/search';
 import styles from './order.module.css';
 
 export default function OrderPage() {
@@ -61,22 +64,33 @@ export default function OrderPage() {
 		},
 	};
 
+	const [searchTerm, setSearchTerm] = useState('');
+
+
+	const filteredProducts = Object.values(product).filter((product) =>
+		product.name.toLowerCase().includes(searchTerm.toLowerCase())
+	);
+
 	return (
-		<div className={styles.container}>
-			{Object.values(product).map((item, index) => (
-				<div key={index} className={styles.product}>
-					<>
-						<>
-							<div className={styles.Image}><Image src={item.photo} alt='' width={200} height={200} /></div>
-						</>
+		<>
+			<div>
+				<SearchBar value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+			</div>
+			<div className={styles.container}>
+				{filteredProducts.map((item, index) => (
+					<div key={index} className={styles.product}>
+						<div className={styles.Image}>
+							<Image src={item.photo} alt={item.name} width={200} height={200} />
+						</div>
 						<div className={styles.info}>
 							<h2 className={styles.name}>{item.name}</h2>
 							<p className={styles.text}>{item.info}</p>
 							<p>Price: {item.price} L.E.</p>
 						</div>
 						<button className={styles.button}>Order</button>
-					</>
-				</div>))}
-		</div>
-	)
+					</div>
+				))}
+			</div>
+		</>
+	);
 };
