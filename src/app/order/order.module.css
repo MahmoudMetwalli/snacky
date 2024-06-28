@@ -72,7 +72,7 @@
 }
 
 .button:hover {
-	background-color: #1ac762; /* Darker shade on hover */
+	background-color: #108641; /* Darker shade on hover */
 }
 
 @media screen and (max-width: 1000px) {

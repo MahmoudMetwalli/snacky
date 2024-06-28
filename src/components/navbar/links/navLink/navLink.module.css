@@ -8,11 +8,15 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: none;
     align-items: center;
-    background-color: rgb(81, 180, 81); /* Background color of the links */
+    background-color:  #f0f0f0;; /* Background color of the links */
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.container:hover {
-    background-color: #2a9c63; /* Hover background color */
+.button:hover {
+    background-color: #0056b3; /* Hover effect */
     color: #FFF; /* Hover text color */
+}
+
+.active {
+    background-color: #006400; /* Strong green background color */
 }
