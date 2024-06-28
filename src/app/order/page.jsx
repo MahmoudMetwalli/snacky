@@ -67,7 +67,7 @@ export default function OrderPage() {
 				<div key={index} className={styles.product}>
 					<>
 						<>
-							<div className={styles.Image}><Image src={item.photo} alt='' width={100} height={100} /></div>
+							<div className={styles.Image}><Image src={item.photo} alt='' width={200} height={200} /></div>
 						</>
 						<div className={styles.info}>
 							<h2 className={styles.name}>{item.name}</h2>
