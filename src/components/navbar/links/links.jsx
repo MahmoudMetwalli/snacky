@@ -54,6 +54,7 @@ const Links = ({ session }) => {
       </div>
       <Image className={styles.menuButton} src='/newmenu.png' alt='' height={30} width={30} onClick={() => setOpen(prev => !prev)}/>
       { open && (<div className={styles.mobileLinks}>
+        {session && session.user ? (<div className={styles.hello}>Hi There !!<br></br>{session.user.username}</div>) : (<div></div>)}
         {links.map(link => (
           <NavLink item={link} key={link.title} />
         ))}</div>
