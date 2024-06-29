@@ -71,7 +71,7 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 860px) {
     .links {
         display: none;
     }
@@ -91,7 +91,6 @@
     }
     .menuButton {
         display: block;
-        background-color: white;
         cursor: pointer;
     }
 }

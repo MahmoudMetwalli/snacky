@@ -36,11 +36,3 @@
     cursor: pointer;
 }
 
-@media (max-width: 760px) {
-    .link {
-        display: none;
-    }
-    .menuButton {
-        display: block;
-    }
-}
