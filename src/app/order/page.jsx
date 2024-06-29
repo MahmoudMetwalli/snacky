@@ -23,7 +23,7 @@ export default function OrderPage() {
 		'Salmon Caesar Salad': {
 			id: 3,
 			name: 'Salmon Caesar Salad',
-			info: ' Grilled salmon fillet on a bed of romaine lettuce, with whole-grain croutons, Parmesan cheese, and a tangy Caesar dressing. Omega-3 goodness! and healthy',
+			info: 'Grilled salmon fillet on a bed of romaine lettuce, with whole-grain croutons, Parmesan cheese, and a tangy Caesar dressing. Omega-3 goodness! and healthy',
 			price: 200,
 			photo: '/SalmonCaesarSalad.jpeg',
 		},
