@@ -47,11 +47,11 @@ const Links = ({ session }) => {
         ))}
         {session
           ? (
-            <>{admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+            <div className={styles.all}>{admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
             <form action={formAction}>
             <button className={styles.logout} type='submit'>Log Out</button>
             </form>
-            </>
+            </div>
             )
           : (<>{auths.map(auth => (
             <NavLink item={auth} key={auth.title} />
