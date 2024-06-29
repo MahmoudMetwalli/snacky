@@ -1,10 +1,36 @@
-/* searchBar.module.css */
-
 .searchInput {
-  width: 100%;
-  padding: 10px;
-  margin: 20px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Center the items vertically */
+  margin-top: 75px; /* Add space above the search bar */
+  margin-bottom: -100px;
+  margin-left: 280px; /* Add space to the left of the search bar */
+  width: 70%; /* Make the search bar full width */
+  height: 55px; /* Increase the height of the search bar */
+  background-color: #f1f1f1; /* Add a background color */
+  border: 1px solid #ccc; /* Add a border to the search bar */
+  border-radius: 4px; /* Add rounded corners to the search bar */
+  padding: 10px; /* Add padding to the search bar */
+  box-sizing: border-box; /* Include padding in the width */
+}
+
+.searchInput input[type="text"] {
+  width: 100%; /* Make the input field full width */
+  height: 100%; /* Make the input field the same height as the search bar */
+  border: none; /* Remove the border from the input field */
+  background-color: transparent; /* Set the background color of the input field to transparent */
+  font-size: 40px; /* Set the font size of the input field */
+}
+
+.searchInput input[type="text"]::placeholder {
+  color: #999; /* Set the color of the placeholder text */
+}
+
+.searchInput input[type="text"]:focus {
+  outline: none; /* Remove the outline from the input field when focused */
+  background-color: #fff; /* Change the background color of the input field when focused */
+}
+@media screen and (max-width: 768px) {
+  .searchInput {
+    width: 100%; /* Make the search bar full width on small screens */
+  }
 }

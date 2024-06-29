@@ -66,7 +66,6 @@ export default function OrderPage() {
 
 	const [searchTerm, setSearchTerm] = useState('');
 
-
 	const filteredProducts = Object.values(product).filter((product) =>
 		product.name.toLowerCase().includes(searchTerm.toLowerCase())
 	);
@@ -93,4 +92,4 @@ export default function OrderPage() {
 			</div>
 		</>
 	);
-};
+}
