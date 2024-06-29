@@ -3,10 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px); /* Adjusted height to account for navbar */
+    min-height: 80vh; /* Adjusted height to account for navbar */
     background-color: var(--bgSoft);
     text-align: center;
     padding: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
 }
 
 .textContainer {
