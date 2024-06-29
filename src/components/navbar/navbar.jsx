@@ -8,7 +8,7 @@ const NavBar = async () => {
   return (
     <div className={styles.container}>
       <div className={styles.logo}>
-        <Image src='/snackLogo_edited.jpg' alt='Brnad logo' fill/>
+        <Image src='/snackylogo2.png' alt='Brnad logo' fill />
       </div>
       <div className={styles.link}>
         <Links session={session}/>
