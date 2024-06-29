@@ -1,10 +1,13 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useContext} from 'react';
 import Image from 'next/image';
 import SearchBar from '@/components/search/search';
 import styles from './order.module.css';
+import CartContext from '@/context/cartContext';
 
 export default function OrderPage() {
+	const useCart = useContext(CartContext);
+	const { addItemToCart } = useCart;
 	const product = {
 		'Tropical Sunrise Fruit Medley': {
 			id: 1,
@@ -70,7 +73,15 @@ export default function OrderPage() {
 	const filteredProducts = Object.values(product).filter((product) =>
 		product.name.toLowerCase().includes(searchTerm.toLowerCase())
 	);
-
+    const addToCartHandler = () => {
+		addItemToCart({
+			id: product.id,
+			name: product.name,
+			info: product.info,
+			price: product.price,
+			photo: product.photo,
+		});
+	};
 	return (
 		<>
 			<div>
@@ -87,7 +98,7 @@ export default function OrderPage() {
 							<p className={styles.text}>{item.info}</p>
 							<p>Price: {item.price} L.E.</p>
 						</div>
-						<button className={styles.button}>Order</button>
+						<button className={styles.button} onClick={addToCartHandler}>Order</button>
 					</div>
 				))}
 			</div>

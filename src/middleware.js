@@ -19,5 +19,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/order', '/login', '/register']
+  matcher: ['/login', '/register']
 }
