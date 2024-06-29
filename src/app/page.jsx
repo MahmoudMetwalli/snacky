@@ -9,9 +9,11 @@ const Home = () => {
         <p className={styles.desc}>Healthy snacks for a healthy life.</p>
         <div className={styles.buttons}>
           <Link href="/order"> {/* Step 2: Wrap the button with Link and set href */}
-            <button className={styles.button}>Order Now</button>
+            <button className={styles.button_1}>Order Now</button>
           </Link>
-          <button className={styles.button}>Learn More</button>
+          <Link href="/about">
+            <button className={styles.button_2}>Learn More</button>
+          </Link>
         </div>
       </div>
     </div>

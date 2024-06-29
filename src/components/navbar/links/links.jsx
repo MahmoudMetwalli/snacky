@@ -16,7 +16,12 @@ const links = [
   {
     title: 'Order',
     path: '/order'
-  }
+  },
+  {
+    title: 'About',
+    path: '/about'
+  },
+
 ];
 const auths = [
   {
