@@ -64,8 +64,9 @@ export default function OrderPage() {
 		},
 	};
 
+	// Search bar
 	const [searchTerm, setSearchTerm] = useState('');
-
+	// Filter products based on search term
 	const filteredProducts = Object.values(product).filter((product) =>
 		product.name.toLowerCase().includes(searchTerm.toLowerCase())
 	);
