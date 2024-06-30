@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { getUserFromDb, getUserName } from "@/lib/action";
+import { getUserFromDb, getUser } from "@/lib/action";
 const bcrypt = require('bcrypt');
 
  
@@ -20,8 +20,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     },
   }),],callbacks: {
     async session({ session, token, user }) {
-      const username = await getUserName(token.email);
+      const userRow = await getUser(token.email);
+      const username = userRow.username;
+      const admin = userRow.admin;
       session.user.username = username;
+      session.user.admin = admin;
       return session;
     }
   }

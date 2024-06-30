@@ -37,7 +37,10 @@ const Links = ({ session }) => {
   const [state, formAction] = useFormState(logOut, undefined);
   const [open, setOpen] = useState(false);
   // TEMPORARY
-  const admin = false;
+  let admin = false;
+  if (session) {
+   admin = session.user.admin;
+  }
   return (
     <div className={styles.container}>
       <div className={styles.links}>

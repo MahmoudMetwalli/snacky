@@ -91,3 +91,13 @@ export async function getUserName(email) {
   const user = await sql`SELECT * FROM users WHERE email = ${email};`
   return user.rows[0].username;
 }
+
+export async function getAdmin(email) {
+  const user = await sql`SELECT * FROM users WHERE email = ${email};`
+  return user.rows[0].admin;
+}
+
+export async function getUser(email) {
+  const user = await sql`SELECT * FROM users WHERE email = ${email};`
+  return user.rows[0];
+}

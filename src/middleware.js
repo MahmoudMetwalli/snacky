@@ -3,14 +3,15 @@ import { cookies } from "next/headers";
  
 export function middleware(request) {
   const cookieStore = cookies();
+  console.log(cookieStore);
   const hasCookie = cookieStore.has('authjs.session-token');
-  /*if (hasCookie) {
+  if (hasCookie) {
     if (request.nextUrl.pathname.startsWith('/login')) {
       return NextResponse.redirect(new URL('/', request.url))};
     if (request.nextUrl.pathname.startsWith('/register')) {
       return NextResponse.redirect(new URL('/', request.url))};
   return NextResponse.next();
-  };*/
+  };
   if (request.nextUrl.pathname.startsWith('/login')) {
     return NextResponse.next();};
   if (request.nextUrl.pathname.startsWith('/register')) {
