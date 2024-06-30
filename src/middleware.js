@@ -3,7 +3,6 @@ import { cookies } from "next/headers";
  
 export function middleware(request) {
   const cookieStore = cookies();
-  console.log(cookieStore);
   const hasCookie = cookieStore.has('authjs.session-token');
   if (hasCookie) {
     if (request.nextUrl.pathname.startsWith('/login')) {

@@ -101,3 +101,13 @@ export async function getUser(email) {
   const user = await sql`SELECT * FROM users WHERE email = ${email};`
   return user.rows[0];
 }
+
+export async function getAllUsers() {
+  const users = await sql`SELECT * FROM users;`;
+  return users.rows;
+}
+
+
+export async function deleteUser(email) {
+  await sql`DELETE FROM users WHERE email = ${email};`;
+}
