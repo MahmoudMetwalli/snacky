@@ -18,8 +18,8 @@ const links = [
     path: '/order'
   },
   {
-    title: 'About',
-    path: '/about'
+    title: 'Connect Us',
+    path: '/connct'
   },
 
 ];

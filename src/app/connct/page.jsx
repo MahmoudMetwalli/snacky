@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './about.module.css';
+import styles from './connect.module.css';
 
-const About = () => {
+const connect = () => {
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>About Us</h1>
@@ -22,4 +22,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default connect;

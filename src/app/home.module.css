@@ -73,3 +73,63 @@
     background-color: green;
     color: white;
 }
+
+/* for about */
+
+.container_1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+  text-align: center;
+  background-color: #f0f0f0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 50px; /* Adjust this value as needed */
+}
+
+.title_1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333333;
+  font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #666666;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.signature {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333333;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .description, .signature {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .description, .signature {
+    font-size: 14px;
+  }
+}
