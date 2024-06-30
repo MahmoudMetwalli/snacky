@@ -1,58 +1,52 @@
+/* styles/Connect.module.css */
+
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 80vh;
   padding: 20px;
-  text-align: center;
-  background-color: #f0f0f0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-top: 25px; /* Adjust this value as needed */
 }
 
-
-.title {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #333333;
-  font-family: 'Arial Narrow', Arial, sans-serif;
-}
-
-.description {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  color: #666666;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.signature {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333333;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+.scrollButton {
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   margin-top: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .title {
-    font-size: 28px;
-  }
-
-  .description, .signature {
-    font-size: 16px;
-  }
+.scrollButton:hover {
+  background-color: #005bb5;
 }
 
-@media (max-width: 480px) {
-  .title {
-    font-size: 24px;
-  }
+.spacer {
+  height: 100vh; /* Adjust this height as needed to create scrollable space */
+}
 
-  .description, .signature {
-    font-size: 14px;
-  }
+.connectSection {
+  padding: 20px;
+  background-color: lightblue;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.connectSection h2 {
+  margin-bottom: 10px;
+}
+
+.connectSection p {
+  margin-bottom: 20px;
+}
+
+.connectSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.connectSection li {
+  margin-bottom: 10px;
 }

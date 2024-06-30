@@ -1,14 +1,25 @@
+"use client";
 import styles from './home.module.css';
+import React, { useRef } from 'react';
 import Link from 'next/link'; // Step 1: Import Link from next/link
 
 const Home = () => {
+
+  const sectionRef = useRef(null);
+
+  const scrollToSection = () => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       {/* hero */}
       <div className={styles.container}>
         <div className={styles.imageContainer}>
           <img src='/snacky-logo2.png' alt='Brand logo' className={styles.image} />
-        </div>
+        </div>button onClic
         <div className={styles.textContainer}>
           <h1 className={styles.title}>Feeling Snacky?</h1>
           <p className={styles.desc}>Healthy snacks for a healthy life.</p>
@@ -16,15 +27,13 @@ const Home = () => {
             <Link href="/order"> {/* Step 2: Wrap the button with Link and set href */}
               <button className={styles.button_1}>Order Now</button>
             </Link>
-            <Link href="#about">
-              <button className={styles.button_2}>Learn More</button>
-            </Link>
+            <button onClick={scrollToSection} className={styles.button_2}>Learn More</button>
           </div>
         </div>
       </div>
 
       {/* about us */}
-      <div id='about' className={styles.container_1}>
+      <div ref={sectionRef} className={styles.container_1}>
         <h1 className={styles.title_1}>About Us</h1>
         <p className={styles.description}>
           Welcome to Snacky, your number one source for all Healthy food. We&apos;re dedicated to giving you the very best of Healthy food (sancks), with a focus on quality, freshness, and customer service.

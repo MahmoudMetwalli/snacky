@@ -1,25 +1,37 @@
-import React from 'react';
+"use client";
+import React, { useRef } from 'react';
 import styles from './connect.module.css';
 
-const connect = () => {
+
+
+const Connect = () => {
+    const sectionRef = useRef(null);
+
+    const scrollToSection = () => {
+        if (sectionRef.current) {
+            sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>About Us</h1>
-            <p className={styles.description}>
-                Welcome to Snacky, your number one source for all Healthy food. We&apos;re dedicated to giving you the very best of Healthy food (sancks), with a focus on quality, freshness, and customer service.
-            </p>
-            <p className={styles.description}>
-                Founded in 2023, Snacky has come a long way from its beginnings. When we first started out, our passion for healthy and delicious snacks drove us to do tons of research so that Snacky can offer you the world&apos;s most advanced snacking options. We now serve customers all over the country and are thrilled that we&apos;re able to turn our passion into our own website.
-            </p>
-            <p className={styles.description}>
-                We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don&apos;t hesitate to contact us.
-            </p>
-            <p className={styles.signature}>
-                Sincerely,<br />
-                Snacky Team
-            </p>
+            <button onClick={scrollToSection} className={styles.scrollButton}>
+                Go to Connect Section
+            </button>
+
+            <div className={styles.spacer}></div>
+
+            <div ref={sectionRef} className={styles.connectSection}>
+                <h2>Connect with Us</h2>
+                <p>Feel free to reach out to us through any of the following ways:</p>
+                <ul>
+                    <li>Email: contact@ourcompany.com</li>
+                    <li>Phone: (123) 456-7890</li>
+                    <li>Address: 1234 Street Name, City, State, Zip</li>
+                </ul>
+            </div>
         </div>
     );
 };
 
-export default connect;
+export default Connect;
