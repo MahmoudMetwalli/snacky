@@ -19,7 +19,7 @@ const Home = () => {
       <div className={styles.container}>
         <div className={styles.imageContainer}>
           <img src='/snacky-logo2.png' alt='Brand logo' className={styles.image} />
-        </div>button onClic
+        </div>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>Feeling Snacky?</h1>
           <p className={styles.desc}>Healthy snacks for a healthy life.</p>
