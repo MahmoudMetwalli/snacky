@@ -28,6 +28,8 @@
 }
 
 .button {
+    position: relative;
+    overflow: hidden;
     padding: 10px 20px; /* More clickable area */
     background-color: #00ff37; /* Primary button color */
     color: white; /* Text color */
@@ -37,9 +39,27 @@
     transition: background-color 0.2s ease; /* Smooth background color transition */
 }
 
+.button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: rgba(236, 232, 24, 0.345);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
 .button:hover {
     background-color: #57b300; /* Darker shade on hover */
 }
+
+.button:active::after {
+    width: 100%;
+    padding-bottom: 100%;
+  }
 
 .info {
     display: flex;

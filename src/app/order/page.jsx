@@ -1,13 +1,19 @@
 "use client";
-import React, { useState, useContext} from 'react';
+import React, { useState, useEffect} from 'react';
 import Image from 'next/image';
 import SearchBar from '@/components/search/search';
 import styles from './order.module.css';
-import CartContext from '@/context/cartContext';
 
 export default function OrderPage() {
-	const useCart = useContext(CartContext);
-	const { addItemToCart } = useCart;
+	const [cart, setCart] = useState([]);
+	useEffect(() => {
+		setCartToState
+	  }, []);
+	  const setCartToState = () => {
+		setCart(
+		  localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+		);
+	  };
 	const product = {
 		'Tropical Sunrise Fruit Medley': {
 			id: 1,
@@ -73,13 +79,43 @@ export default function OrderPage() {
 	const filteredProducts = Object.values(product).filter((product) =>
 		product.name.toLowerCase().includes(searchTerm.toLowerCase())
 	);
-    const addToCartHandler = () => {
+	const addItemToCart = async ({
+		id,
+		name,
+		info,
+		price,
+		photo,
+		quantity = 1,
+	  }) => {
+		const item = {
+		  id,
+		name,
+		info,
+		price,
+		photo,
+		quantity
+		};
+		const isItemExist = cart?.cartItems?.find(
+		  (i) => i.id === item.id
+		)
+		let newCartItems;
+		if(isItemExist){ 
+		  newCartItems = cart?.cartItems?.map(
+		(i) => i.id === isItemExist.id ? item : i
+		);
+		} else {
+		  newCartItems = [...(cart?.cartItems || []), item];
+		}
+		localStorage.setItem('cart', JSON.stringify({cartItems: newCartItems}));
+		setCartToState();
+	  };
+    const addToCartHandler = (item) => {
 		addItemToCart({
-			id: product.id,
-			name: product.name,
-			info: product.info,
-			price: product.price,
-			photo: product.photo,
+			id: item.id,
+			name: item.name,
+			info: item.info,
+			price: item.price,
+			photo: item.photo,
 		});
 	};
 	return (
@@ -98,7 +134,7 @@ export default function OrderPage() {
 							<p className={styles.text}>{item.info}</p>
 							<p>Price: {item.price} L.E.</p>
 						</div>
-						<button className={styles.button} onClick={addToCartHandler}>Order</button>
+						<button className={styles.button} onClick={() => addToCartHandler(item)}>Order</button>
 					</div>
 				))}
 			</div>
