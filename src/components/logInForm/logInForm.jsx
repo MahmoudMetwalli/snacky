@@ -17,7 +17,7 @@ export default function LogInForm() {
   return (<form className={styles.form} action={formAction}>
 	<input type="text" placeholder="E-Mail Address" name="email"/>
 	<input type="password" placeholder="Password" name="password"/>
-	<p>You don't have an account ?<Link href='/register' className={styles.signup}>  Click here to sign up </Link></p>
+	<p>You don`&apos;`t have an account ?<Link href='/register' className={styles.signup}>  Click here to sign up </Link></p>
 	{ state?.error }
 	<button>Log in</button>
 	</form>)

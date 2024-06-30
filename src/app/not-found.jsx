@@ -5,7 +5,7 @@ const NotFoundPage = () => {
 	return (
 	  <div className={styles.container}>
 		<h2>Ops,not found</h2>
-	    <p>This page doesn't exits</p>
+	    <p>This page doesn`&apos;`t exits</p>
 		<Link href='/'>Return Home</Link>
 	  </div>
   );
