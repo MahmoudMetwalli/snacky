@@ -23,7 +23,7 @@
 	flex-direction: column;
     border: 1px solid #ddd;
     padding: 1rem;
-    width: 200px;
+    width: 170px;
     text-align: center;
     gap: 1rem;
 }
@@ -61,6 +61,8 @@
 	gap: 10px;
 	align-items: center;
 	justify-content: center;
+    padding-right: 90px;
+    width: 60%;
 }
 
 .purchase{
