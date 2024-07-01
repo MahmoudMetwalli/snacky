@@ -6,6 +6,9 @@ import NavLink from './navLink/navLink';
 import Image from 'next/image';
 import { logOut } from '@/lib/action';
 import { useFormState } from "react-dom";
+import { useContext } from 'react';
+import CartContext from '@/context/cartContext';
+import Link from 'next/link';
 
 
 const links = [
@@ -34,6 +37,7 @@ const auths = [
   }];
 
 const Links = ({ session }) => {
+  const { deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
   const [state, formAction] = useFormState(logOut, undefined);
   const [open, setOpen] = useState(false);
   // TEMPORARY
@@ -45,6 +49,11 @@ const Links = ({ session }) => {
     <div className={styles.container}>
       <div className={styles.links}>
         {session && session.user ? (<div className={styles.hello}>Hi There !!<br></br>{session.user.username}</div>) : (<div></div>)}
+        <div className={styles.cart}>
+        <Link  href='/cart' className={styles.cart}><Image src='/shoppingCart.png' alt='shoppingCart' width={40} height={40} />
+         </Link>
+         <span>{cart?.cartItems?.length || 0}</span>
+        </div>
         {links.map(link => (
           <NavLink item={link} key={link.title} />
         ))}

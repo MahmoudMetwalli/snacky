@@ -79,6 +79,11 @@
     color: #006400;
 }
 
+.cart {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #006400;
+}
+
 @media (max-width: 860px) {
     .links {
         display: none;
