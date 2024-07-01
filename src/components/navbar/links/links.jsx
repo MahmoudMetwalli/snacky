@@ -50,7 +50,7 @@ const Links = ({ session }) => {
       <div className={styles.links}>
         {session && session.user ? (<div className={styles.hello}>Hi There !!<br></br>{session.user.username}</div>) : (<div></div>)}
         <div className={styles.cart}>
-        <Link  href='/cart' className={styles.cart}><Image src='/shoppingCart.png' alt='shoppingCart' width={40} height={40} />
+        <Link  href='/cart' className={styles.cart}><Image src='/shopping.png' alt='shopping' width={40} height={40} />
          </Link>
          <span>{cart?.cartItems?.length || 0}</span>
         </div>
