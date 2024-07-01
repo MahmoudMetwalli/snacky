@@ -3,8 +3,11 @@ import React, { useState, useEffect} from 'react';
 import Image from 'next/image';
 import SearchBar from '@/components/search/search';
 import styles from './order.module.css';
+import { useContext } from 'react';
+import CartContext from '@/context/cartContext';
 
 export default function OrderPage() {
+    const { addItemToCart, cart } = useContext(CartContext);
 	const product = {
 		'Tropical Sunrise Fruit Medley': {
 			id: 1,
@@ -63,6 +66,15 @@ export default function OrderPage() {
 			photo: '/MediterraneanQuinoaBowl.jpeg',
 		},
 	};
+	const addItemToCartHandler = (item) => {
+		addItemToCart({
+			id: item.id,
+			name: item.name,
+			info: item.info,
+			price: item.price,
+			photo: item.photo,
+	});
+	}
 
 	// Search bar
 	const [searchTerm, setSearchTerm] = useState('');
@@ -86,7 +98,7 @@ export default function OrderPage() {
 							<p className={styles.text}>{item.info}</p>
 							<p>Price: {item.price} L.E.</p>
 						</div>
-						<button className={styles.button}>Add to cart</button>
+						<button className={styles.button} onClick={() => addItemToCartHandler(item)}>Add to cart</button>
 					</div>
 				))}
 			</div>

@@ -1,0 +1,97 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Adjusted height to account for navbar */
+    background-color: var(--bgSoft);
+    text-align: center;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+	gap: 100px;
+}
+
+.cart {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.cartItem {
+	display: flex;
+	flex-direction: column;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+    gap: 1rem;
+}
+
+
+.cartItem img {
+    max-width: 100%;
+    height: auto;
+}
+
+.amount {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 5px;
+}
+
+.removeButton {
+    background-color: #ff6347;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.removeButton:hover {
+    background-color: #d9534f;
+}
+
+.total {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.purchase{
+	display: flex;
+	gap: 7px;
+}
+
+.payButton {
+    background-color: #10b510;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.payButton:hover {
+    background-color: #038d03;
+}
+
+.discardButton {
+    background-color: #969796;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.discardButton:hover {
+    background-color: #6c6d6c;
+}
