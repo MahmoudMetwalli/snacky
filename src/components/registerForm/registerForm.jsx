@@ -8,19 +8,27 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 
 export default function RegisterForm() {
+	const [state, formAction] = useFormState(register, undefined);
+	const router = useRouter();
 
-  const [state, formAction] = useFormState(register, undefined);
-  const router = useRouter();
-  useEffect(() => {
-		state?.success && router.push("/");
-	  }, [state?.success, router]);
-  return (<form className={styles.form} action={formAction}>
-	<input type="text" placeholder="User Name" name="userName"/>
-	<input type="text" placeholder="E-Mail Address" name="email"/>
-	<input type="password" placeholder="Password" name="passWord"/>
-	<input type="password" placeholder="Retype password" name="rePassWord"/>
-	<p>Already have an account ?<Link href='/login' className={styles.signin}>  Click here to sign in </Link></p>
-	{ state?.error }
-	<button>Register</button>
-	</form>)
+	useEffect(() => {
+		if (state?.success) {
+			router.push("/");
+		}
+	}, [state?.success, router]);
+
+	return (
+		<div className={styles['form-container']}>
+			<h1>Register</h1>
+			<form className={styles.form} action={formAction}>
+				<input type="text" placeholder="User Name" name="userName" required />
+				<input type="email" placeholder="E-Mail Address" name="email" required />
+				<input type="password" placeholder="Password" name="passWord" required />
+				<input type="password" placeholder="Retype Password" name="rePassWord" required />
+				<p>Already have an account? <Link href='/login' className={styles.signin}>Click here to sign in</Link></p>
+				{state?.error && <p className={styles.error}>{state?.error}</p>}
+				<button type="submit">Register</button>
+			</form>
+		</div>
+	);
 }
