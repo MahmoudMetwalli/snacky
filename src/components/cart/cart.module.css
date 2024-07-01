@@ -1,44 +1,59 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 80vh; /* Adjusted height to account for navbar */
+    align-items: flex-start;
+    min-height: 80vh;
     background-color: var(--bgSoft);
-    text-align: center;
     padding: 20px;
     margin-top: 25px;
     border-radius: 8px;
-	gap: 100px;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
 .cart {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 20px;
+    padding: 20px;
+    flex: 1;
+    max-width: 60%;
 }
 
 .cartItem {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid #ddd;
-    padding: 1rem;
-    width: 170px;
+    padding: 20px;
+    width: 250px;
     text-align: center;
-    gap: 1rem;
+    gap: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
 .cartItem img {
-    max-width: 100%;
-    height: auto;
+    border-radius: 8px;
 }
 
 .amount {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.amount button {
+    background-color: #ddd;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.amount button:hover {
+    background-color: #ccc;
 }
 
 .removeButton {
@@ -46,9 +61,10 @@
     color: #fff;
     border: none;
     cursor: pointer;
-    padding: 0.5rem 1rem;
+    padding: 10px 20px;
     font-size: 14px;
     transition: background-color 0.3s;
+    border-radius: 5px;
 }
 
 .removeButton:hover {
@@ -56,28 +72,38 @@
 }
 
 .total {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	align-items: center;
-	justify-content: center;
-    padding-right: 90px;
-    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-top: 20px;
+}
+.total h1 {
+    padding-right: 35px;
 }
 
-.purchase{
-	display: flex;
-	gap: 7px;
+.purchase {
+    display: flex;
+    gap: 10px;
+}
+
+.payButton, .discardButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .payButton {
     background-color: #10b510;
     color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    font-size: 14px;
-    transition: background-color 0.3s;
 }
 
 .payButton:hover {
@@ -86,12 +112,7 @@
 
 .discardButton {
     background-color: #969796;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    font-size: 14px;
-    transition: background-color 0.3s;
+    color: #fff;
 }
 
 .discardButton:hover {
