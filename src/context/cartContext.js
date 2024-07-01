@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const router = useRouter();
   useEffect(() => {
-    setCartToState
+    setCartToState()
   }, []);
   const setCartToState = () => {
     setCart(
