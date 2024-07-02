@@ -129,3 +129,8 @@ export async function getAllOrders() {
   const orders = await sql`SELECT * FROM orders;`;
   return orders.rows;
 }
+
+export async function getMyOrders(id) {
+  const myOrders = await sql`SELECT * FROM orders WHERE user_id = ${id};;`;
+  return myOrders.rows;
+}

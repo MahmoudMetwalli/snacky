@@ -60,6 +60,7 @@ const Links = ({ session }) => {
         {session
           ? (
             <div className={styles.all}>{admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+            <NavLink item={{ title: 'My orders', path: '/myorders' }} />
             <form action={formAction}>
             <button className={styles.logout} type='submit'>Log Out</button>
             </form>

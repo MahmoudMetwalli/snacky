@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Adjusted height to account for navbar */
+    background-color: var(--bgSoft);
+    text-align: center;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+}
