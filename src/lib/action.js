@@ -81,33 +81,51 @@ export async function getUserFromDb(email, password) {
 
   if (!isPasswordCorrect) throw new Error("Wrong credentials!");
   return user.rows[0];
-}
+};
 
 export async function logOut(previousState, formData) {
   await signOut();
-}
+};
 
 export async function getUserName(email) {
   const user = await sql`SELECT * FROM users WHERE email = ${email};`
   return user.rows[0].username;
-}
+};
 
 export async function getAdmin(email) {
   const user = await sql`SELECT * FROM users WHERE email = ${email};`
   return user.rows[0].admin;
-}
+};
 
 export async function getUser(email) {
   const user = await sql`SELECT * FROM users WHERE email = ${email};`
   return user.rows[0];
-}
+};
 
 export async function getAllUsers() {
   const users = await sql`SELECT * FROM users;`;
   return users.rows;
-}
+};
 
 
 export async function deleteUser(email) {
   await sql`DELETE FROM users WHERE email = ${email};`;
+};
+
+export async function deleteOrder(id) {
+  await sql`DELETE FROM orders WHERE id = ${id};`;
+};
+
+export async function addOrder(userId, cart) {
+  const json = JSON.stringify(cart);
+  try {
+	await sql`INSERT INTO orders (user_id , json) VALUES (${userId}, ${json});`;
+  } catch (error) {
+	return {error: "Sorry, something went "};
+  }
+};
+
+export async function getAllOrders() {
+  const orders = await sql`SELECT * FROM orders;`;
+  return orders.rows;
 }

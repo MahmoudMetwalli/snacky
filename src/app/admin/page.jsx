@@ -1,3 +1,4 @@
+import OrdersGetter from '@/components/ordersGetter/ordersGetter';
 import styles from './admin.module.css';
 import UsersGetter from '@/components/usersGetter/usersGetter';
 
@@ -14,13 +15,8 @@ export default async function AdminPage() {
   ]
   return(
 	<div className={styles.container}>
-    <UsersGetter></UsersGetter>
-    <div className={styles.ordersContainer}>Orders:{orders.map((order) => (
-        <div className={styles.orders} key={order.orderuser}>Order ID:  {order.id}
-        <p>Ordered By:  {order.orderuser}</p>
-        <button className={styles.deleteButton}>Delete</button>
-        </div>
-    ))}</div>
+    <UsersGetter/>
+    <OrdersGetter/>
   </div>
   )
 }

@@ -4,6 +4,7 @@ import styles from './cart.module.css';
 import { useContext } from 'react';
 import CartContext from '@/context/cartContext';
 import Link from 'next/link';
+import { addOrder } from '@/lib/action';
 
 
 export default async function Cart({ session }) {
@@ -20,6 +21,10 @@ export default async function Cart({ session }) {
 		const newQty = cartItem.quantity - 1;
 		if (newQty <= 0) return;
 		addItemToCart({ ...cartItem, quantity: newQty });
+	};
+	const saveOrderHandler = (userId, cart) => {
+		addOrder(userId, cart);
+		discardCart();
 	};
 	const totalAmount = cart?.cartItems?.reduce((acc, item) => acc + item.quantity * item.price, 0);
 	if (session) {
@@ -44,7 +49,7 @@ export default async function Cart({ session }) {
 			<div className={styles.total}>
 				<h1>Total Amount: {totalAmount || 0} .L.E</h1>
 				{cart?.cartItems?.length > 0 ? (<div className={styles.purchase}>
-					<button className={styles.payButton}>Save and Pay</button>
+					<button className={styles.payButton} onClick={() => saveOrderHandler(session.user.id, cart)}>Save and Pay</button>
 					<button className={styles.discardButton} onClick={() => discardCart()}>Discard Cart</button>
 				</div>) : (<div className={styles.empty}>Please add items to display cart</div>)}
 			</div>
