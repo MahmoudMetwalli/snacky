@@ -46,10 +46,10 @@ export async function register(previousState, formData) {
   const pwHash = await bcrypt.hash(passWord, salt);
   try {
 	await sql`INSERT INTO users (username , password , email) VALUES (${userName}, ${pwHash}, ${email});`;
-	return { success: true };
   } catch (error) {
 	return {error: "Sorry, something went "};
   }
+  redirect('/login');
 };
 
 export async function logIn(previousState, formData) {
