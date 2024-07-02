@@ -21,10 +21,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   }),],callbacks: {
     async session({ session, token, user }) {
       const userRow = await getUser(token.email);
-      const username = userRow.username;
-      const admin = userRow.admin;
-      session.user.username = username;
-      session.user.admin = admin;
+      session.user.username = userRow.username;
+      session.user.admin = userRow.admin;
+      session.user.id = userRow.id;
       return session;
     }
   }
