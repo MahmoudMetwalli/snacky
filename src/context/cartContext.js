@@ -11,11 +11,16 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     setCartToState()
   }, []);
+
   const setCartToState = () => {
     setCart(
       localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
     );
   };
+  const discardCart = () => {
+		localStorage.setItem('cart', '');
+		setCartToState();
+	  };
   const addItemToCart = async ({
     id,
     name,
@@ -57,6 +62,7 @@ export const CartProvider = ({ children }) => {
 	cart,
   addItemToCart,
   deleteItemFromCart,
+  discardCart,
   }}
   >
 	{children}

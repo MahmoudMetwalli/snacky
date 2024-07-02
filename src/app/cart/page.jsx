@@ -1,12 +1,10 @@
-"use client";
-import Image from 'next/image';
-import { useContext } from 'react';
-import CartContext from '@/context/cartContext';
+
 import Cart from '@/components/cart/cart';
+import { auth } from '../../../auth';
 
 
-export default function CartPage() {
-    
-	return(<Cart/>
+export default async function CartPage() {
+	const session = await auth();
+	return(<Cart session={session}/>
 	)
 }

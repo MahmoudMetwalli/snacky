@@ -10,7 +10,23 @@
     gap: 50px;
     flex-wrap: wrap;
 }
+.signIncontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: var(--bgSoft);
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+    gap: 50px;
+}
 
+.redText {
+    text-decoration: none;
+    color: #d9534f;
+}
 .cart {
     display: flex;
     flex-wrap: wrap;
@@ -117,4 +133,9 @@
 
 .discardButton:hover {
     background-color: #6c6d6c;
+}
+
+.empty {
+    align-items: center;
+    justify-content: center;
 }

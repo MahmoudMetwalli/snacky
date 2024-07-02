@@ -3,9 +3,12 @@ import Image from 'next/image';
 import styles from './cart.module.css';
 import { useContext } from 'react';
 import CartContext from '@/context/cartContext';
+import Link from 'next/link';
 
-export default function Cart() {
-	const { deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
+
+export default async function Cart({ session }) {
+	const { discardCart, deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
+
 
 	const increaseQty = (cartItem) => {
 		const newQty = cartItem.quantity + 1;
@@ -18,9 +21,8 @@ export default function Cart() {
 		if (newQty <= 0) return;
 		addItemToCart({ ...cartItem, quantity: newQty });
 	};
-
 	const totalAmount = cart?.cartItems?.reduce((acc, item) => acc + item.quantity * item.price, 0);
-
+	if (session) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.cart}>
@@ -40,12 +42,16 @@ export default function Cart() {
 				))}
 			</div>
 			<div className={styles.total}>
-				<h1>Total Amount: {totalAmount} L.E</h1>
-				<div className={styles.purchase}>
+				<h1>Total Amount: {totalAmount || 0} .L.E</h1>
+				{cart?.cartItems?.length > 0 ? (<div className={styles.purchase}>
 					<button className={styles.payButton}>Save and Pay</button>
-					<button className={styles.discardButton}>Discard Cart</button>
-				</div>
+					<button className={styles.discardButton} onClick={() => discardCart()}>Discard Cart</button>
+				</div>) : (<div className={styles.empty}>Please add items to display cart</div>)}
 			</div>
 		</div>
 	);
+} else {
+	return <div className={styles.signIncontainer}><h1>You need to sign in before accessing cart content</h1>
+	<Link href='/login' className={styles.redText}><h1>Please click here to sign in</h1></Link></div>
+}
 }
