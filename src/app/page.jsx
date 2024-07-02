@@ -4,7 +4,6 @@ import React, { useRef } from 'react';
 import Link from 'next/link'; // Step 1: Import Link from next/link
 
 const Home = () => {
-
   const sectionRef = useRef(null);
 
   const scrollToSection = () => {
@@ -17,9 +16,7 @@ const Home = () => {
     <>
       {/* hero */}
       <div className={styles.container}>
-        <div className={styles.imageContainer}>
-          <img src='/snacky-logo2.png' alt='Brand logo' className={styles.image} />
-        </div>
+        <div className={styles.overlay}></div>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>Feeling Snacky?</h1>
           <p className={styles.desc}>Healthy snacks for a healthy life.</p>
@@ -36,7 +33,7 @@ const Home = () => {
       <div ref={sectionRef} className={styles.container_1}>
         <h1 className={styles.title_1}>About Us</h1>
         <p className={styles.description}>
-          Welcome to Snacky, your number one source for all Healthy food. We&apos;re dedicated to giving you the very best of Healthy food (sancks), with a focus on quality, freshness, and customer service.
+          Welcome to Snacky, your number one source for all Healthy food. We&apos;re dedicated to giving you the very best of Healthy food (snacks), with a focus on quality, freshness, and customer service.
         </p>
         <p className={styles.description}>
           Founded in 2023, Snacky has come a long way from its beginnings. When we first started out, our passion for healthy and delicious snacks drove us to do tons of research so that Snacky can offer you the world&apos;s most advanced snacking options. We now serve customers all over the country and are thrilled that we&apos;re able to turn our passion into our own website.
@@ -54,4 +51,3 @@ const Home = () => {
 };
 
 export default Home;
-
