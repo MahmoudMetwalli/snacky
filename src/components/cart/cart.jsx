@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { addOrder } from '@/lib/action';
 
 
-export default async function Cart({ session }) {
+export default function Cart({ session }) {
 	const { discardCart, deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
 
 
@@ -56,7 +56,13 @@ export default async function Cart({ session }) {
 		</div>
 	);
 } else {
-	return <div className={styles.signIncontainer}><h1>You need to sign in before accessing cart content</h1>
-	<Link href='/login' className={styles.redText}><h1>Please click here to sign in</h1></Link></div>
+	return(
+		<div className={styles.signIncontainer}>
+			<h1>You need to sign in before accessing cart content</h1>
+			<Link href='/login' className={styles.redText}>
+				<h1>Please click here to sign in</h1>
+			</Link>
+		</div>
+	);
 }
 }

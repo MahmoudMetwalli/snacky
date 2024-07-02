@@ -1,6 +1,6 @@
 
 import MyOrdersGetter from '@/components/myOrdersGetter/myOrdersGetter';
-import styles from './myorders.module.css';
+import { redirect } from 'next/navigation';
 import { auth } from '../../../auth';
 
 export default async function MyOrdersPagePage() {
@@ -9,7 +9,6 @@ export default async function MyOrdersPagePage() {
 		redirect('/login');
 	}
 	return (
-	  <div className={styles.container}><MyOrdersGetter/></div>
+	  <MyOrdersGetter/>
   );
-};
-
+}

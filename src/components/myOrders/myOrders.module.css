@@ -1,23 +1,31 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 80vh;
-    background-color: var(--bgSoft);
-    padding: 20px;
-    margin-top: 25px;
-    border-radius: 8px;
-    gap: 50px;
-    flex-wrap: wrap;
+	margin-top: 200px;	
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 20px; /* Adds space between items */
 }
 
-.cart {
+.ordersWrapper {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: column;
+    gap: 50px;
+    justify-content: center;
+    width: 100%;
+}
+
+.orderContainer {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
-    padding: 20px;
-    flex: 1;
-    max-width: 60%;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+    background-color: #f0f0f0;
+    border-radius: 8px; /* Rounded corners for the info section */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    border: 20px;
 }
 
 .cartItem {
@@ -32,10 +40,18 @@
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .cartItem img {
     border-radius: 8px;
+    width: 100%;
+    height: auto;
+}
+
+.cartItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .amount {
@@ -44,9 +60,45 @@
     gap: 10px;
 }
 
-
-
 .empty {
+    display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 80vh;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.orderHeader {
+    font-size: 1.8em; /* Increase font size */
+    margin-bottom: 10px;
+    color: black; /* Text color */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Uppercase letters */
+    letter-spacing: 1px; /* Space between letters */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Text shadow for depth */
+    font-family: 'Roboto', sans-serif; /* Change to a more stylish font */
+}
+
+.itemName {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #34495e;
+}
+
+.itemPrice, .itemTotal {
+    font-size: 1em;
+    color: #16a085;
+}
+
+@media (max-width: 768px) {
+    .ordersWrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .orderContainer, .cartItem {
+        width: 100%;
+        max-width: 350px;
+    }
 }
