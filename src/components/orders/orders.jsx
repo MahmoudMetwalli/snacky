@@ -11,7 +11,7 @@ export default function Orders({ orders }) {
     router.refresh();
   };
   return(
-    <div className={styles.ordersContainer}>Orders:{orders.map((order) => (
+    <div className={styles.ordersContainer}>{orders.map((order) => (
       <div className={styles.orders} key={order.orderuser}>Order ID:  {order.id}
       <p>User ID :  {order.user_id}</p>
       <button onClick={() => deleteOrderHandler(order.id)} className={styles.deleteButton}>Delete</button>
