@@ -17,12 +17,12 @@ const links = [
     path: '/'
   },
   {
-    title: 'Order',
-    path: '/order'
-  },
-  {
     title: 'Contact',
     path: '/contact'
+  },
+  {
+    title: 'Order',
+    path: '/order'
   },
 
 ];
@@ -59,8 +59,9 @@ const Links = ({ session }) => {
         ))}
         {session
           ? (
-            <div className={styles.all}>{admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
-            <NavLink item={{ title: 'My orders', path: '/myorders' }} />
+            <div className={styles.all}>
+              <NavLink item={{ title: 'My orders', path: '/myorders' }} />
+              {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
             <form action={formAction}>
             <button className={styles.logout} type='submit'>Log Out</button>
             </form>

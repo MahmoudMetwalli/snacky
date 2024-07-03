@@ -1,16 +1,14 @@
 import UsersGetter from '@/components/usersGetter/usersGetter';
 import OrdersGetter from '@/components/ordersGetter/ordersGetter';
 import styles from './admin.module.css';
+import { auth } from '../../../auth';
+import { redirect } from 'next/navigation';
 
-export default function AdminPage() {
-  const orders = [
-    { id: 1, orderuser: 'Ali' },
-    { id: 2, orderuser: 'Ahmed' },
-    { id: 3, orderuser: 'Luke' },
-    { id: 4, orderuser: 'Sadek' },
-    { id: 5, orderuser: 'Iris' },
-  ];
-
+export default async function AdminPage() {
+	const session = await auth();
+	if (!session?.user?.admin) {
+		redirect('/login');
+	}
   return (
     <div className={styles.container}>
       <div className={styles.users}>
