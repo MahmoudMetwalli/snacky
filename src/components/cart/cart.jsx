@@ -5,12 +5,13 @@ import { useContext } from 'react';
 import CartContext from '@/context/cartContext';
 import Link from 'next/link';
 import { addOrder } from '@/lib/action';
+import { useRouter } from 'next/navigation';
 
 
 export default function Cart({ session }) {
 	const { discardCart, deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
 
-
+	const router = useRouter();
 	const increaseQty = (cartItem) => {
 		const newQty = cartItem.quantity + 1;
 		if (newQty > Number(cartItem.stock)) return;
@@ -25,6 +26,7 @@ export default function Cart({ session }) {
 	const saveOrderHandler = (userId, cart) => {
 		addOrder(userId, cart);
 		discardCart();
+		router.refresh();
 	};
 	const totalAmount = cart?.cartItems?.reduce((acc, item) => acc + item.quantity * item.price, 0);
 	if (session) {
