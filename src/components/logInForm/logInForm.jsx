@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 
 export default function LogInForm() {
-
   const [state, formAction] = useFormState(logIn, undefined);
   const router = useRouter();
   useEffect(() => {

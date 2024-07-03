@@ -13,7 +13,7 @@ export default function RegisterForm() {
 
 	useEffect(() => {
 		if (state?.success) {
-			router.push("/");
+			router.push("/login");
 		}
 	}, [state?.success, router]);
 

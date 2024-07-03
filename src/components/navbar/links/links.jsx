@@ -6,9 +6,10 @@ import NavLink from './navLink/navLink';
 import Image from 'next/image';
 import { logOut } from '@/lib/action';
 import { useFormState } from "react-dom";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import CartContext from '@/context/cartContext';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 
 const links = [
@@ -39,6 +40,13 @@ const auths = [
 const Links = ({ session }) => {
   const { deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
   const [state, formAction] = useFormState(logOut, undefined);
+  const router = useRouter();
+  useEffect(() => {
+		if (state?.success) {
+			router.push("/login");
+		}
+	}, [state?.success, router]);
+
   const [open, setOpen] = useState(false);
   // TEMPORARY
   let admin = false;
