@@ -4,6 +4,7 @@ import styles from './myOrders.module.css';
 import Image from 'next/image';
 
 export default function MyOrders({ myOrders }) {
+  
   if (myOrders.length !== 0) {
     return (
       <div className={styles.container}>
