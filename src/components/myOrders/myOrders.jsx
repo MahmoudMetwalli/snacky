@@ -30,7 +30,7 @@ export default function MyOrders({ myOrders }) {
   } else {
     return (
       <div className={`${styles.container} ${styles.empty}`}>
-        <Link href='/order'>Make your first order from here</Link>
+        <Link href='/order' className={styles.redText}><h1>Make your first order from here</h1></Link>
       </div>
     )
   }

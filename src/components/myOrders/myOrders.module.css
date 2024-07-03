@@ -91,6 +91,23 @@
     color: #16a085;
 }
 
+.redText {
+    text-decoration: none;
+    color: #d9534f;
+    transition: color 0.3s ease; /* Add smooth transition */
+}
+
+.redText:hover,
+.redText:focus {
+    color: #b52b27; /* Darken color on hover/focus */
+    text-decoration: underline; /* Underline text on hover/focus for better accessibility */
+}
+
+.redText h1 {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
 @media (max-width: 768px) {
     .ordersWrapper {
         flex-direction: column;
