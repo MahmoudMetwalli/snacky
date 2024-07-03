@@ -55,12 +55,25 @@
 	border: none; /* Removes default border */
 	border-radius: 5px; /* Rounded corners */
 	cursor: pointer; /* Changes cursor to pointer */
-	transition: background-color 0.2s ease; /* Smooth background color transition */
+	transition: all 0.2s ease; /* Smooth background color transition */
 }
 
 .button:hover {
 	background-color: #0b7035; /* Darker shade on hover */
 }
+
+.cart {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #006400;
+
+}
+
+.cartContainer {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
 
 @media screen and (max-width: 1000px) {
     .product {

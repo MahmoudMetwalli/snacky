@@ -5,6 +5,7 @@ import SearchBar from '@/components/search/search';
 import styles from './order.module.css';
 import { useContext } from 'react';
 import CartContext from '@/context/cartContext';
+import Link from 'next/link';
 
 export default function OrderPage() {
     const { addItemToCart, cart } = useContext(CartContext);
@@ -75,7 +76,8 @@ export default function OrderPage() {
 			photo: item.photo,
 	});
 	}
-
+	const isItemExist = (item) => {
+		return cart?.cartItems?.find((i) => i.id === item.id)};
 	// Search bar
 	const [searchTerm, setSearchTerm] = useState('');
 	// Filter products based on search term
@@ -98,7 +100,15 @@ export default function OrderPage() {
 							<p className={styles.text}>{item.info}</p>
 							<p>Price: {item.price} L.E.</p>
 						</div>
-						<button className={styles.button} onClick={() => addItemToCartHandler(item)}>Add to cart</button>
+						<div className={styles.cartContainer}>
+						<div className={styles.cart}>
+        <Link  href='/cart' className={styles.cart}><Image src='/shopping.png' alt='shopping' width={30} height={30} />
+         </Link>
+         <span>{cart?.cartItems?.length || 0}</span>
+        </div>
+		{isItemExist(item)? (<div><button className={styles.button} >Added</button></div>):(<div><button className={styles.button} onClick={() => addItemToCartHandler(item)}>Add to cart</button></div>)}
+		
+		</div>
 					</div>
 				))}
 			</div>
