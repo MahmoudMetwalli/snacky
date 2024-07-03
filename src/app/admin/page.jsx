@@ -7,7 +7,11 @@ import { redirect } from 'next/navigation';
 export default async function AdminPage() {
 	const session = await auth();
 	if (!session?.user?.admin) {
-		redirect('/login');
+    if (!session) {
+		  redirect('/login');
+    } else {
+      redirect('/');
+    }
 	}
   return (
     <div className={styles.container}>
