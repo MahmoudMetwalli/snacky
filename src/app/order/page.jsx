@@ -8,7 +8,7 @@ import CartContext from '@/context/cartContext';
 import Link from 'next/link';
 
 export default function OrderPage() {
-    const { addItemToCart, cart } = useContext(CartContext);
+    const { deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
 	const product = {
 		'Tropical Sunrise Fruit Medley': {
 			id: 1,
@@ -106,7 +106,7 @@ export default function OrderPage() {
          </Link>
          <span>{cart?.cartItems?.length || 0}</span>
         </div>
-		{isItemExist(item)? (<div><button className={styles.button} >Added</button></div>):(<div><button className={styles.button} onClick={() => addItemToCartHandler(item)}>Add to cart</button></div>)}
+		{isItemExist(item)? (<div><button className={styles.removeButton} onClick={() => deleteItemFromCart(item.id)}>Remove from cart</button></div>):(<div><button className={styles.button} onClick={() => addItemToCartHandler(item)}>Add to cart</button></div>)}
 		
 		</div>
 					</div>
