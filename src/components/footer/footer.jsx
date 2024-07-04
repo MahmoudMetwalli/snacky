@@ -18,6 +18,7 @@ function Footer() {
         <div className={styles.section}>
           <h2>EMAIL</h2>
           <p>ramzyar010277@gmail.com</p>
+          <p>mammkbih@gmail.com</p>
         </div>
         <div className={styles.section}>
           <h2>LOCATION</h2>
