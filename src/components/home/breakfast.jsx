@@ -16,7 +16,7 @@ const BreakfastSection = () => {
         <div className={styles.container} data-aos="fade-up">
             <div className={styles.textContainer} data-aos="fade-right">
                 <h1>Breakfast<br />To-Go</h1>
-                <p>No time to linger? That's fine. We've packed you a breakfast fit for kings. Emphasis on "fit."<br />
+                <p>No time to linger? That&apos;s fine. We&apos;ve packed you a breakfast fit for kings. Emphasis on &quot;fit.&quot;<br />
                     Check out the ingredients:</p>
                 <ul>
                     <li>Slow-roasted oats & grains</li>
