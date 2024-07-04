@@ -11,11 +11,11 @@ export async function register(previousState, formData) {
   if (!userName || !email || !passWord || !rePassWord) {
 	  return {error: "Please fill in all data"};
   }
-  const nonAlpha = /^[A-Za-z0-9_]+$/;
+  const nonAlpha = /^[A-Za-z0-9_\s]+$/;
   if (!nonAlpha.test(userName)) {
     return {error: "User name should contain only alphanumeric characters and underscores"};
   }
-  const eightAtLeast = /^[A-Za-z0-9_]{8,}$/;
+  const eightAtLeast = /^[A-Za-z0-9_ \s]{8,}$/;
   if (!eightAtLeast.test(userName)) {
     return {error: "User-name should contain at least 8 characters"};
   }
