@@ -90,6 +90,8 @@ const Links = ({ session }) => {
             <div className={styles.allMobile}>
               <NavLink item={{ title: 'Order history', path: '/orderhistory' }} />
               {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+              <Link  href='/cart' className={styles.cart}><Image src='/shopping.png' alt='shopping' width={40} height={40} />
+         </Link>
             <form action={formAction}>
             <button className={styles.logout} type='submit'>Log Out</button>
             </form>
