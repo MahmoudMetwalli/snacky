@@ -62,7 +62,7 @@ export default function Cart({ session }) {
 		<div className={styles.signIncontainer}>
 			<h1>You need to sign in before accessing cart content</h1>
 			<Link href='/login' className={styles.redText}>
-				<h1>Please click here to sign in</h1>
+				<button className={styles.b1}>Sign In</button>
 			</Link>
 		</div>
 	);

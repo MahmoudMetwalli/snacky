@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500&display=swap');
 .container {
     display: flex;
     justify-content: center;
@@ -25,12 +26,13 @@
     border-radius: 8px;
     gap: 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+    margin-bottom: 100px;
 }
 
 .signIncontainer h1 {
     margin: 0; /* Remove default margin */
     padding: 0 10px; /* Add some padding */
-    color: var(--primaryTextColor); /* Ensure text color is consistent */
+    color: red; /* Ensure text color is consistent */
     text-align: center;
 }
 
@@ -39,16 +41,20 @@
     color: #d9534f;
     transition: color 0.3s ease; /* Add smooth transition */
 }
-
-.redText:hover,
-.redText:focus {
-    color: #b52b27; /* Darken color on hover/focus */
-    text-decoration: underline; /* Underline text on hover/focus for better accessibility */
+.b1{
+    padding: 20px 40px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+    background-color: #038d03;
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
 }
-
-.redText h1 {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+.b1:hover {
+    background-color: #097909;
 }
 
 .cart {
