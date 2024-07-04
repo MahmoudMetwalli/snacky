@@ -68,7 +68,7 @@ const Links = ({ session }) => {
         {session
           ? (
             <div className={styles.all}>
-              <NavLink item={{ title: 'My orders', path: '/myorders' }} />
+              <NavLink item={{ title: 'Order history', path: '/orderhistory' }} />
               {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
             <form action={formAction}>
             <button className={styles.logout} type='submit'>Log Out</button>
@@ -88,7 +88,7 @@ const Links = ({ session }) => {
         {session
           ? (
             <div className={styles.allMobile}>
-              <NavLink item={{ title: 'My orders', path: '/myorders' }} />
+              <NavLink item={{ title: 'Order history', path: '/orderhistory' }} />
               {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
             <form action={formAction}>
             <button className={styles.logout} type='submit'>Log Out</button>
