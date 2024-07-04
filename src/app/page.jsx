@@ -1,5 +1,6 @@
 "use client";
 import styles from './home.module.css';
+import BreakfastSection from '../components/home/breakfast'; // Step 3: Import the BreakfastSection component
 import React, { useRef } from 'react';
 import Link from 'next/link'; // Step 1: Import Link from next/link
 
@@ -28,6 +29,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* breakfast */}
+      <BreakfastSection/>
 
       {/* about us */}
       <div ref={sectionRef} className={styles.container_1}>
