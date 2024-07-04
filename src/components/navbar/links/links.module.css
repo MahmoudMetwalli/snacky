@@ -5,6 +5,7 @@
 }
 
 .links {
+    align-items: center;
     display: flex;
     gap: 20px;;
 }
@@ -22,8 +23,9 @@
 .all {
     align-items: center;
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
+
 .menuButton, .mobileLinks {
     display: none;
 }
@@ -59,6 +61,13 @@
         z-index: 1000;
 
     }
+    .allMobile {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
     .menuButton {
         display: block;
         cursor: pointer;

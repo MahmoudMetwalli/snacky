@@ -87,7 +87,9 @@ const Links = ({ session }) => {
         ))}
         {session
           ? (
-            <div className={styles.all}>{admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
+            <div className={styles.allMobile}>
+              <NavLink item={{ title: 'My orders', path: '/myorders' }} />
+              {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
             <form action={formAction}>
             <button className={styles.logout} type='submit'>Log Out</button>
             </form>
