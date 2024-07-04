@@ -35,5 +35,4 @@ const BreakfastSection = () => {
         </div>
     );
 };
-
 export default BreakfastSection;
