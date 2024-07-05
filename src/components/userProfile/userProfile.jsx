@@ -44,6 +44,7 @@ export default function UserProfile({ session }) {
 							<button type="submit" className={styles.updateButton}>Update</button>
 						</form>
 						{phoneState?.error && <p className={styles.error}>{phoneState?.error}</p>}
+						{phoneState?.success && <p className={styles.success}>{phoneState?.success}</p>}
 					</div>
 					<div className={styles.updateField}>
 						<strong>Address:</strong>
@@ -53,6 +54,7 @@ export default function UserProfile({ session }) {
 							<button type="submit" className={styles.updateButton}>Update</button>
 						</form>
 						{addressState?.error && <p className={styles.error}>{addressState?.error}</p>}
+						{addressState?.success && <p className={styles.success}>{addressState?.success}</p>}
 					</div>
 				</div>
 			</div>

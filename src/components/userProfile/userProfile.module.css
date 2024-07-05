@@ -21,6 +21,11 @@
 	font-size: 14px;
 }
 
+.success {
+	color: #09c809;
+	font-size: 14px;
+}
+
 .flex {
   display: flex;
 }

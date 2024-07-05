@@ -145,7 +145,12 @@ export async function updatePhoneNumber (previousState, formData) {
   if (userPhoneNumber.rowCount !== 0) {
     return {error: "Phone number is already used"};
   }
+  try {
   await sql`UPDATE users SET phone_number = ${phoneNumber} WHERE id = ${id};`;
+  } catch (error) {
+	return {error: "Sorry, something went "};
+  }
+  return {success: "Successfully updated"}
 }
 
 export async function updateAddress (previousState, formData) {
@@ -153,7 +158,12 @@ export async function updateAddress (previousState, formData) {
   if (!address) {
     return {error: "Please enter the desired address"}
   }
+  try {
   await sql`UPDATE users SET address = ${address} WHERE id = ${id};`;
+  } catch (error) {
+	return {error: "Sorry, something went "};
+  }
+  return {success: "Successfully updated"}
 }
 
 /* ORDER FUNCTIONS */
