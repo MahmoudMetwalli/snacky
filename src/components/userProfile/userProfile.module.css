@@ -142,18 +142,3 @@
 .updateButton:hover {
   background-color: #45A049;
 }
-
-.orderHistoryButton {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-.orderHistoryButton:hover {
-  background-color: #45A049;
-}
