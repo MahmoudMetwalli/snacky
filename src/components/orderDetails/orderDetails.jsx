@@ -1,6 +1,6 @@
 "use client";
 import Image from 'next/image';
-import styles from './cart.module.css';
+import styles from './orderDetails.module.css';
 import { useContext } from 'react';
 import CartContext from '@/context/cartContext';
 import Link from 'next/link';
@@ -8,7 +8,7 @@ import { addOrder } from '@/lib/action';
 import { useRouter } from 'next/navigation';
 
 
-export default function Cart({ session }) {
+export default function Details({ session }) {
 	const { discardCart, deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
 
 	const router = useRouter();
@@ -23,8 +23,10 @@ export default function Cart({ session }) {
 		if (newQty <= 0) return;
 		addItemToCart({ ...cartItem, quantity: newQty });
 	};
-	const proceedHandler = () => {
-		router.push('/orderdetails');
+	const saveOrderHandler = (userId, cart) => {
+		addOrder(userId, cart);
+		discardCart();
+		router.refresh();
 	};
 	const totalAmount = cart?.cartItems?.reduce((acc, item) => acc + item.quantity * item.price, 0);
 	if (session) {
@@ -49,7 +51,7 @@ export default function Cart({ session }) {
 			<div className={styles.total}>
 				<h1>Total Amount: {totalAmount || 0} .L.E</h1>
 				{cart?.cartItems?.length > 0 ? (<div className={styles.purchase}>
-					<button className={styles.payButton} onClick={() => proceedHandler()}>Proceed</button>
+					<button className={styles.payButton} onClick={() => saveOrderHandler(session.user.id, cart)}>Save and Pay</button>
 					<button className={styles.discardButton} onClick={() => discardCart()}>Discard Cart</button>
 				</div>) : (<div className={styles.empty}>Please add items to display cart</div>)}
 			</div>
