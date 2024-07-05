@@ -7,8 +7,8 @@ import { redirect } from "next/navigation";
 const bcrypt = require('bcrypt');
 
 export async function register(previousState, formData) {
-  const { userName, email, address, passWord, rePassWord } = Object.fromEntries(formData);
-  if (!userName || !email || !passWord || !rePassWord) {
+  const { userName, email, address, passWord, rePassWord, firstName, lastName } = Object.fromEntries(formData);
+  if (!userName || !email || !passWord || !rePassWord || !address || !firstName || !lastName) {
 	  return {error: "Please fill in all data"};
   }
   const nonAlpha = /^[A-Za-z0-9_]+$/;
@@ -31,6 +31,13 @@ export async function register(previousState, formData) {
   if (userEmail.rowCount !== 0) {
     return {error: "E-mail is already used"};
   }
+  const Alpha = /^[A-Za-z]+$/;
+  if (!Alpha.test(firstName)) {
+    return {error: "First name should contain only alphabetic characters"};
+  }
+  if (!Alpha.test(lastName)) {
+    return {error: "Last name should contain only alphabetic characters"};
+  }
   if (!address) {
     return {error: "Please type your address"}
   }
@@ -48,7 +55,7 @@ export async function register(previousState, formData) {
   const salt = await bcrypt.genSalt(10);
   const pwHash = await bcrypt.hash(passWord, salt);
   try {
-	await sql`INSERT INTO users (username , password , email, address) VALUES (${userName}, ${pwHash}, ${email}, ${address});`;
+	await sql`INSERT INTO users (username , password , email, address, first_name, last_name) VALUES (${userName}, ${pwHash}, ${email}, ${address}, ${firstName}, ${lastName});`;
   } catch (error) {
 	return {error: "Sorry, something went "};
   }

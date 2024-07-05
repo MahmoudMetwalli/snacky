@@ -56,50 +56,58 @@ const Links = ({ session }) => {
   return (
     <div className={styles.container}>
       <div className={styles.links}>
-        {session && session.user ? (<div className={styles.hello}>Hi There<br></br>{session.user.username}</div>) : (<div></div>)}
-        <div className={styles.cart}>
-        <Link  href='/cart' className={styles.cart}><Image src='/shopping.png' alt='shopping' width={40} height={40} />
-         </Link>
-         <span>{cart?.cartItems?.length || 0}</span>
-        </div>
+        {session && session.user ? (<div className={styles.hello}>Hi There<br></br>{session.user.firstName}&nbsp;{session.user.lastName}</div>) : (<div></div>)}
         {links.map(link => (
           <NavLink item={link} key={link.title} />
         ))}
         {session
           ? (
             <div className={styles.all}>
-              <NavLink item={{ title: 'Order history', path: '/orderhistory' }} />
+              <NavLink item={{ title: 'My Profile', path: '/myprofile' }} />
               {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
-            <form action={formAction}>
-            <button className={styles.logout} type='submit'>Log Out</button>
-            </form>
             </div>
             )
           : (<>{auths.map(auth => (
             <NavLink item={auth} key={auth.title} />
           ))}</>)}
+          <div className={styles.all}>
+          <div className={styles.cart}>
+        <Link  href='/cart' className={styles.cart}><Image src='/shopping.png' alt='shopping' width={40} height={40} />
+         </Link>
+         <span>{cart?.cartItems?.length || 0}</span>
+        </div>
+          {session && <form action={formAction}>
+            <button className={styles.logout} type='submit'>Log Out</button>
+            </form>}
+          </div>
       </div>
       <Image className={styles.menuButton} src='/newmenu.png' alt='' height={30} width={30} onClick={() => setOpen(prev => !prev)}/>
       { open && (<div className={styles.mobileLinks}>
-        {session && session.user ? (<div className={styles.hello}>Hi There !!<br></br>{session.user.username}</div>) : (<div></div>)}
+        {session && session.user ? (<div className={styles.hello}>Hi There<br></br>{session.user.firstName}&nbsp;{session.user.lastName}</div>) : (<div></div>)}
         {links.map(link => (
           <NavLink item={link} key={link.title} />
         ))}
         {session
           ? (
             <div className={styles.allMobile}>
-              <NavLink item={{ title: 'Order history', path: '/orderhistory' }} />
+              <NavLink item={{ title: 'My Profile', path: '/myprofile' }} />
               {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
-              <Link  href='/cart' className={styles.cart}><Image src='/shopping.png' alt='shopping' width={40} height={40} />
-         </Link>
-            <form action={formAction}>
-            <button className={styles.logout} type='submit'>Log Out</button>
-            </form>
             </div>
             )
           : (<>{auths.map(auth => (
             <NavLink item={auth} key={auth.title} />
-          ))}</>)}</div>
+          ))}</>)}
+          <div className={styles.all}>
+          <div className={styles.cart}>
+        <Link  href='/cart' className={styles.cart}><Image src='/shopping.png' alt='shopping' width={40} height={40} />
+         </Link>
+         <span>{cart?.cartItems?.length || 0}</span>
+        </div>
+          {session && <form action={formAction}>
+            <button className={styles.logout} type='submit'>Log Out</button>
+            </form>}
+          </div>
+          </div>
       )}
     </div>
   );
