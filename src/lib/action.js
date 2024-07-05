@@ -106,7 +106,7 @@ export async function getUserFromDb(email, password) {
 export async function logOut(previousState, formData) {
   await signOut();
 };
-
+/* USER FUNCTIONS */
 export async function getUserName(email) {
   const user = await sql`SELECT * FROM users WHERE email = ${email};`
   return user.rows[0].username;
@@ -132,6 +132,28 @@ export async function deleteUser(email) {
   await sql`DELETE FROM users WHERE email = ${email};`;
 };
 
+export async function updatePhoneNumber (previousState, formData) {
+  const { id, phoneNumber } = Object.fromEntries(formData);
+  if (!phoneNumber) {
+    return {error: "Please enter the desired phone number"}
+  }
+  const phoneNum = /^[0-9]{11}$/;
+  if (!phoneNum.test(phoneNumber)) {
+    return {error: "Phone number should contain eleven numbers"};
+  }
+  const userPhoneNumber = await sql`SELECT * FROM users WHERE phone_number = ${phoneNumber};`;
+  if (userPhoneNumber.rowCount !== 0) {
+    return {error: "Phone number is already used"};
+  }
+  await sql`UPDATE users SET phone_number = ${phoneNumber} WHERE id = ${id};`;
+}
+
+export async function updateAddress (address, id) {
+  await sql`UPDATE users SET address = ${address} WHERE id = ${id};`;
+}
+
+/* ORDER FUNCTIONS */
+
 export async function deleteOrder(id) {
   await sql`DELETE FROM orders WHERE id = ${id};`;
 };
@@ -154,3 +176,4 @@ export async function getMyOrders(id) {
   const myOrders = await sql`SELECT * FROM orders WHERE user_id = ${id};;`;
   return myOrders.rows;
 }
+

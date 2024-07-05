@@ -12,6 +12,20 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.hidden {
+  display: none;
+}
+
+.error {
+	color: #ff6347;
+	font-size: 14px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
 .profile {
   display: flex;
   flex-direction: column;
