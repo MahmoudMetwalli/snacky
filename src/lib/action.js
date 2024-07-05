@@ -148,7 +148,11 @@ export async function updatePhoneNumber (previousState, formData) {
   await sql`UPDATE users SET phone_number = ${phoneNumber} WHERE id = ${id};`;
 }
 
-export async function updateAddress (address, id) {
+export async function updateAddress (previousState, formData) {
+  const { id, address } = Object.fromEntries(formData);
+  if (!address) {
+    return {error: "Please enter the desired address"}
+  }
   await sql`UPDATE users SET address = ${address} WHERE id = ${id};`;
 }
 

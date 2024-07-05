@@ -1,14 +1,15 @@
 'use client';
 
-import Link from 'next/link';
-import styles from './userProfile.module.css';
 import { useFormState } from "react-dom";
 import { useRouter } from "next/navigation";
-import { updateAddress, updatePhoneNumber } from '@/lib/action';
 import { useEffect } from 'react';
+import { updateAddress, updatePhoneNumber } from '@/lib/action';
+import Link from 'next/link';
+import styles from './userProfile.module.css';
 
 
-export default async function UserProfile({ session }) {
+
+export default function UserProfile({ session }) {
 	const [phoneState, phoneFormAction] = useFormState(updatePhoneNumber, undefined);
 	const [addressState, addressFormAction] = useFormState(updateAddress, undefined);
 	const router = useRouter();
@@ -38,20 +39,20 @@ export default async function UserProfile({ session }) {
 					<div className={styles.updateField}>
 						<strong>Phone Number:</strong>
 						<form className={styles.updateForm} action={phoneFormAction}>
-							<div className={styles.form}>
 							<input value={session.user.id} name="id" className={styles.hidden}></input>
 							<input type="text" placeholder={session.user.phone_number || 'Update phone number'} name="phoneNumber" />
-							{phoneState?.error && <p className={styles.error}>{phoneState?.error}</p>}
-							</div>
 							<button type="submit" className={styles.updateButton}>Update</button>
 						</form>
+						{phoneState?.error && <p className={styles.error}>{phoneState?.error}</p>}
 					</div>
 					<div className={styles.updateField}>
 						<strong>Address:</strong>
-						<form className={styles.updateForm}>
+						<form className={styles.updateForm} action={addressFormAction}>
+							<input value={session.user.id} name="id" className={styles.hidden}></input>
 							<input type="text" placeholder={session.user.address || 'Update address'} name="address" />
 							<button type="submit" className={styles.updateButton}>Update</button>
 						</form>
+						{addressState?.error && <p className={styles.error}>{addressState?.error}</p>}
 					</div>
 				</div>
 			</div>

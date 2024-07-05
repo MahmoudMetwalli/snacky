@@ -21,6 +21,10 @@
 	font-size: 14px;
 }
 
+.flex {
+  display: flex;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -84,6 +88,7 @@
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  transform: none;
 }
 
 .uploadButton:hover {
