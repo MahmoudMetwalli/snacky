@@ -7,8 +7,8 @@ import { redirect } from "next/navigation";
 const bcrypt = require('bcrypt');
 
 export async function register(previousState, formData) {
-  const { userName, email, address, passWord, rePassWord, firstName, lastName } = Object.fromEntries(formData);
-  if (!userName || !email || !passWord || !rePassWord || !address || !firstName || !lastName) {
+  const { userName, email, phoneNumber, address, passWord, rePassWord, firstName, lastName } = Object.fromEntries(formData);
+  if (!userName || !email || !phoneNumber || !passWord || !rePassWord || !address || !firstName || !lastName) {
 	  return {error: "Please fill in all data"};
   }
   const nonAlpha = /^[A-Za-z0-9_]+$/;
@@ -31,11 +31,19 @@ export async function register(previousState, formData) {
   if (userEmail.rowCount !== 0) {
     return {error: "E-mail is already used"};
   }
-  const Alpha = /^[A-Za-z]+$/;
-  if (!Alpha.test(firstName)) {
+  const phoneNum = /^[0-9]{11}$/;
+  if (!phoneNum.test(phoneNumber)) {
+    return {error: "Phone number should contain eleven numbers"};
+  }
+  const userPhoneNumber = await sql`SELECT * FROM users WHERE phone_number = ${phoneNumber};`;
+  if (userPhoneNumber.rowCount !== 0) {
+    return {error: "Phone number is already used"};
+  }
+  const alpha = /^[A-Za-z]+$/;
+  if (!alpha.test(firstName)) {
     return {error: "First name should contain only alphabetic characters"};
   }
-  if (!Alpha.test(lastName)) {
+  if (!alpha.test(lastName)) {
     return {error: "Last name should contain only alphabetic characters"};
   }
   if (!address) {
@@ -55,7 +63,7 @@ export async function register(previousState, formData) {
   const salt = await bcrypt.genSalt(10);
   const pwHash = await bcrypt.hash(passWord, salt);
   try {
-	await sql`INSERT INTO users (username , password , email, address, first_name, last_name) VALUES (${userName}, ${pwHash}, ${email}, ${address}, ${firstName}, ${lastName});`;
+	await sql`INSERT INTO users (username , password , email, address, first_name, last_name, phone_number) VALUES (${userName}, ${pwHash}, ${email}, ${address}, ${firstName}, ${lastName}, ${phoneNumber});`;
   } catch (error) {
 	return {error: "Sorry, something went "};
   }

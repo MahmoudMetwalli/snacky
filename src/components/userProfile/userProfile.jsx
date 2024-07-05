@@ -6,6 +6,7 @@ export default async function UserProfile({ session }) {
   <div className={styles.container}>
 	<div>User Name: {session.user.username}</div>
 	<div>User Email-Addrees: {session.user.email}</div>
+	<div>Phone Number: {session.user.phone_number}</div>
 	<div>First Name: {session.user.firstName}</div>
 	<div>Last Name: {session.user.lastName}</div>
 	<div>Address: {session.user.address}<form><input type='text' placeholder='Update address' name='address'></input><button>Update</button></form></div>
