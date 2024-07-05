@@ -27,7 +27,6 @@ export default function UserProfile({ session }) {
 					<form className={styles.uploadForm}>
 						<label htmlFor="file-upload" className={styles.uploadLabel}>Upload Photo</label>
 						<input id="file-upload" type="file" accept="image/*" className={styles.fileInput} />
-						<button type="submit" className={styles.uploadButton}>Upload</button>
 					</form>
 				</div>
 				<div className={styles.info}>
