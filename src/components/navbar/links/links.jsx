@@ -13,8 +13,8 @@ import { faUser, faHistory, faSignOutAlt, faCog } from '@fortawesome/free-solid-
 
 const links = [
   { title: 'Home', path: '/' },
-  { title: 'Contact', path: '/contact' },
   { title: 'Order', path: '/order' },
+  { title: 'Contact', path: '/contact' },
 ];
 
 const auths = [
