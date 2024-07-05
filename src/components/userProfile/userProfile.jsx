@@ -58,9 +58,6 @@ export default function UserProfile({ session }) {
 					</div>
 				</div>
 			</div>
-			<Link href="/orderhistory">
-				<button className={styles.orderHistoryButton}>Order History</button>
-			</Link>
 		</div>
 	);
 }
