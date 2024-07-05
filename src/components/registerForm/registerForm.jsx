@@ -25,6 +25,7 @@ export default function RegisterForm() {
 					<input type="text" placeholder="First Name" name="firstName" required />
 					<input type="text" placeholder="Last Name" name="lastName" required />
 				</div>
+				<input type="text" placeholder="User Name" name="userName" required />
 				<input type="email" placeholder="E-Mail Address" name="email" required />
 				<input type="tel" placeholder="Phone Number" name="phoneNumber" required />
 				<input type="text" placeholder="Address" name="address" required />
