@@ -8,7 +8,7 @@ export default async function UserProfile({ session }) {
 	<div>User Email-Addrees: {session.user.email}</div>
 	<div>First Name: {session.user.firstName}</div>
 	<div>Last Name: {session.user.lastName}</div>
-	<div>Address: {session.user.address}<form><input></input><button></button></form></div>
-	<Link href='/orderhistory'>Order history</Link>
+	<div>Address: {session.user.address}<form><input type='text' placeholder='Update address' name='address'></input><button>Update</button></form></div>
+	<Link href='/orderhistory'><h1>Order history</h1></Link>
   </div>)
 }
