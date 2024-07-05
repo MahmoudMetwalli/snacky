@@ -23,6 +23,7 @@ export default function RegisterForm() {
 			<form className={styles.form} action={formAction}>
 				<input type="text" placeholder="User Name" name="userName" required />
 				<input type="email" placeholder="E-Mail Address" name="email" required />
+				<input type="text" placeholder="Address" name="address" required />
 				<input type="password" placeholder="Password" name="passWord" required />
 				<input type="password" placeholder="Retype Password" name="rePassWord" required />
 				<p>Already have an account? <Link href='/login' className={styles.signin}>Click here to sign in</Link></p>

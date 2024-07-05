@@ -18,7 +18,7 @@ export default function LogInForm() {
 		<div className={styles['form-container']}>
 			<h1>Login</h1>
 			<form className={styles.form} action={formAction}>
-				<input type="email" placeholder="E-Mail Address" name="email" required />
+				<input type="text" placeholder="E-Mail Address or User Name" name="email" required />
 				<input type="password" placeholder="Password" name="password" required />
 				<p>You don&apos;t have an account? <Link href='/register' className={styles.signup}>Click here to sign up</Link></p>
 				{state?.error && <p className={styles.error}>{state?.error}</p>}

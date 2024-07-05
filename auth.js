@@ -24,6 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       session.user.username = userRow.username;
       session.user.admin = userRow.admin;
       session.user.id = userRow.id;
+      session.user.address = userRow.address;
       return session;
     }
   }

@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 const bcrypt = require('bcrypt');
 
 export async function register(previousState, formData) {
-  const { userName, email, passWord, rePassWord } = Object.fromEntries(formData);
+  const { userName, email, address, passWord, rePassWord } = Object.fromEntries(formData);
   if (!userName || !email || !passWord || !rePassWord) {
 	  return {error: "Please fill in all data"};
   }
@@ -31,6 +31,9 @@ export async function register(previousState, formData) {
   if (userEmail.rowCount !== 0) {
     return {error: "E-mail is already used"};
   }
+  if (!address) {
+    return {error: "Please type your address"}
+  }
   const validPassWord = /^[A-Za-z0-9_\-@%#*]+$/;
   if (!validPassWord.test(passWord)) {
     return {error: "Password should contain only alphanumeric and special characters @ % * - _ #"};
@@ -45,7 +48,7 @@ export async function register(previousState, formData) {
   const salt = await bcrypt.genSalt(10);
   const pwHash = await bcrypt.hash(passWord, salt);
   try {
-	await sql`INSERT INTO users (username , password , email) VALUES (${userName}, ${pwHash}, ${email});`;
+	await sql`INSERT INTO users (username , password , email, address) VALUES (${userName}, ${pwHash}, ${email}, ${address});`;
   } catch (error) {
 	return {error: "Sorry, something went "};
   }
@@ -61,15 +64,17 @@ export async function logIn(previousState, formData) {
     await signIn("credentials", { email, password });
   } catch (err) {
     if (err.type === "CallbackRouteError") {
-      return { error: "Something went wrong, please re-check email and password" };
+      return { error: "Something went wrong, please re-check email or user name and password" };
     }
   }
   redirect('/');
 }
 
 export async function getUserFromDb(email, password) {
-  const user = await sql`SELECT * FROM users WHERE email = ${email};`
-
+  let user = await sql`SELECT * FROM users WHERE email = ${email};`
+  if (user.rowCount !== 1) {
+    user = await sql`SELECT * FROM users WHERE username = ${email};`
+  }
   if (user.rowCount !== 1) {
     console.log(user.rowCount);
     throw new Error("User not found.");
