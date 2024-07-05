@@ -6,6 +6,8 @@ import { signOut } from "../../auth";
 import { redirect } from "next/navigation";
 const bcrypt = require('bcrypt');
 
+
+/* AUTHENTICATION FUNCTIONS */
 export async function register(previousState, formData) {
   const { userName, email, phoneNumber, address, passWord, rePassWord, firstName, lastName } = Object.fromEntries(formData);
   if (!userName || !email || !phoneNumber || !passWord || !rePassWord || !address || !firstName || !lastName) {
@@ -85,6 +87,12 @@ export async function logIn(previousState, formData) {
   redirect('/');
 }
 
+export async function logOut(previousState, formData) {
+  await signOut();
+};
+
+/* USER FUNCTIONS */
+
 export async function getUserFromDb(email, password) {
   let user = await sql`SELECT * FROM users WHERE email = ${email};`
   if (user.rowCount !== 1) {
@@ -103,10 +111,6 @@ export async function getUserFromDb(email, password) {
   return user.rows[0];
 };
 
-export async function logOut(previousState, formData) {
-  await signOut();
-};
-/* USER FUNCTIONS */
 export async function getUserName(email) {
   const user = await sql`SELECT * FROM users WHERE email = ${email};`
   return user.rows[0].username;
@@ -174,8 +178,9 @@ export async function deleteOrder(id) {
 
 export async function addOrder(userId, cart) {
   const json = JSON.stringify(cart);
+  const orderDate = new Date();
   try {
-	await sql`INSERT INTO orders (user_id , json) VALUES (${userId}, ${json});`;
+	await sql`INSERT INTO orders (user_id , json, order_date) VALUES (${userId}, ${json}, ${orderDate});`;
   } catch (error) {
 	return {error: "Sorry, something went "};
   }

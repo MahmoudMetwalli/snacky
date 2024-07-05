@@ -15,6 +15,7 @@ export default function MyOrders({ myOrders }) {
               <span>Payment:&nbsp;{order.paid? (<span>Paid</span>):(<span>Not paid</span>)}</span>
               <span>Delivery:&nbsp;{order.delivered? (<span>Delivered</span>):(<span>Not delivered yet</span>)}</span>
               <span>Delivery address:&nbsp;{order.delivery_address}</span>
+              <span>Date of order:</span>{order.order_date}
               {(JSON.parse(order.json).cartItems).map((item) => (
                 <div key={item.id} className={styles.cartItem}>
                   <Image src={item.photo} alt={item.name} width={200} height={200} className={styles.cartItemImg} />
