@@ -7,8 +7,8 @@ import { useRouter } from 'next/navigation';
 
 export default function Users({ users }) {
   const router = useRouter();
-  const deleteUserHandler = (email) => {
-    deleteUser(email);
+  const deleteUserHandler = (id) => {
+    deleteUser(id);
     router.refresh();
   };
   return(<div className={styles.usersContainer}>{users.map((user) => (
@@ -20,7 +20,7 @@ export default function Users({ users }) {
       <span>Last Name:&nbsp;{user.last_name}</span>
       <span>Phone Number:&nbsp;{user.phone_number}</span>
       <span>Address:&nbsp;{user.address}</span>
-    {!user.admin && <button onClick={() => deleteUserHandler(user.email)} className={styles.deleteButton}>Delete</button>}
+    {!user.admin && <button onClick={() => deleteUserHandler(user.id)} className={styles.deleteButton}>Delete</button>}
     </div>
 ))}</div>);
 }

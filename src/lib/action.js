@@ -132,8 +132,8 @@ export async function getAllUsers() {
 };
 
 
-export async function deleteUser(email) {
-  await sql`DELETE FROM users WHERE email = ${email};`;
+export async function deleteUser(id) {
+  await sql`DELETE FROM users WHERE id = ${id};`;
 };
 
 export async function updatePhoneNumber (previousState, formData) {
