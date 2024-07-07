@@ -126,7 +126,7 @@ const Links = ({ session }) => {
               <span>{cart?.cartItems?.length || 0}</span>
             </div>
             {session && (
-              <button className={styles.logout} onClick={handleLogout}>
+              <button className={styles.logoutM} onClick={handleLogout}>
                 <FontAwesomeIcon icon={faSignOutAlt} /> Log Out
               </button>
             )}

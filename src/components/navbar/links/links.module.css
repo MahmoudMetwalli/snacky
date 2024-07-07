@@ -20,6 +20,16 @@
   background-color: #fefefec1;
 }
 
+.logoutM {
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  color: rgb(0, 0, 0);
+  background-color: #fefefec1;
+}
+
 .all {
   align-items: center;
   display: flex;

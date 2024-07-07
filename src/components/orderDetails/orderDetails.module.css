@@ -73,7 +73,7 @@
     align-items: center;
     border: 1px solid #ddd;
     padding: 20px;
-    width: 600px;
+    width: 100%;
     text-align: center;
     gap: 30px;
     background-color: #fff;
@@ -170,7 +170,7 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    width: 300px;
+    width: 50%;
     transition: background-color 0.3s;
 }
 
