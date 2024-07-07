@@ -176,11 +176,11 @@ export async function deleteOrder(id) {
   await sql`DELETE FROM orders WHERE id = ${id};`;
 };
 
-export async function addOrder(userId, cart) {
+export async function addOrder(userId, deliveryAddress, cart) {
   const json = JSON.stringify(cart);
   const orderDate = new Date();
   try {
-	await sql`INSERT INTO orders (user_id , json, order_date) VALUES (${userId}, ${json}, ${orderDate});`;
+	await sql`INSERT INTO orders (user_id , json, order_date, delivery_address) VALUES (${userId}, ${json}, ${orderDate}, ${deliveryAddress});`;
   } catch (error) {
 	return {error: "Sorry, something went "};
   }
