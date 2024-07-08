@@ -18,13 +18,13 @@ export default function Details({ session }) {
 	  router.push('/cart');
 	}
 	const saveOrderHandler = (userId, address, cart) => {
-		let deliveryAddress = address;
-		if (deliveryAddress === '') {
-			deliveryAddress = session.user.address;
-		}
-		addOrder(userId, deliveryAddress, cart, false);
-		discardCart();
-		router.refresh();
+	  let deliveryAddress = address;
+	  if (deliveryAddress === '') {
+		  deliveryAddress = session.user.address;
+	  }
+	  addOrder(userId, deliveryAddress, cart, false);
+	  discardCart();
+	  router.refresh();
 	};
 	const totalAmount = cart?.cartItems?.reduce((acc, item) => acc + item.quantity * item.price, 0);
 	if (session) {
