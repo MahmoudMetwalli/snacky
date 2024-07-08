@@ -9,9 +9,11 @@ import { useRouter } from 'next/navigation';
 
 
 export default function Details({ session }) {
-	const { discardCart, deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
-	const [value, setValue] = useState('');
+	const { discardCart, deleteItemFromCart, addItemToCart, cart, address, setAddress } = useContext(CartContext);
 	const router = useRouter();
+	const proceedToPayment = () => {
+		router.push('/payment');
+	  }
 	const backToCart = () => {
 	  router.push('/cart');
 	}
@@ -20,7 +22,7 @@ export default function Details({ session }) {
 		if (deliveryAddress === '') {
 			deliveryAddress = session.user.address;
 		}
-		addOrder(userId, deliveryAddress, cart);
+		addOrder(userId, deliveryAddress, cart, false);
 		discardCart();
 		router.refresh();
 	};
@@ -49,13 +51,13 @@ export default function Details({ session }) {
 					<strong>Want to change delivery address?: </strong>
 						<input value={session.user.id} name="userId" className={styles.hidden} />
 						<input value={cart} name="cart" className={styles.hidden} />
-						<input type="text" placeholder={session.user.address} value={value} onChange={e => { setValue(e.currentTarget.value); }}/>
+						<input type="text" placeholder={session.user.address} value={address} onChange={e => { setAddress(e.currentTarget.value); }}/>
 						</div>
 						<br></br>
-						<button className={styles.saveButton} onClick={() => saveOrderHandler(session.user.id, value, cart)}>Save order without confirmation</button>
+						<button className={styles.saveButton} onClick={() => saveOrderHandler(session.user.id, address, cart)}>Save order without confirmation</button>
 						</form>
 						</div>
-					<button className={styles.payButton} onClick={() => saveOrderHandler(session.user.id, cart)}>Proceed to payment</button>
+					<button className={styles.payButton} onClick={() => proceedToPayment()}>Proceed to payment</button>
 					</div>) : (<div className={styles.empty}>Please add items</div>)}
 					<br></br>
 					<button className={styles.discardButton} onClick={() => backToCart()}>Go back to cart</button>

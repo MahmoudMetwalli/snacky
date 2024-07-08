@@ -6,6 +6,7 @@ import { createContext, useEffect, useState } from "react";
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
+  const [address, setAddress] = useState('');
   const [cart, setCart] = useState([]);
   const router = useRouter();
   useEffect(() => {
@@ -63,6 +64,8 @@ export const CartProvider = ({ children }) => {
   addItemToCart,
   deleteItemFromCart,
   discardCart,
+  address,
+  setAddress,
   }}
   >
 	{children}
