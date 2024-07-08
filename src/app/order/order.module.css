@@ -49,6 +49,7 @@
 }
 
 .button {
+    font-size: 14px;
 	margin-top: 5px;
 	padding: 10px 20px; /* More clickable area */
 	background-color: green; /* Primary button color */
@@ -83,8 +84,9 @@
     cursor: pointer;
     padding: 10px 20px;
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: all 0.2s ease;
     border-radius: 5px;
+    margin-top: 5px;
 }
 
 .removeButton:hover {

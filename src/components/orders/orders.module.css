@@ -52,13 +52,14 @@
   }
   
   .red {
+    margin-top: 5px;
     background-color: #ff6347;
     color: #fff;
     border: none;
     cursor: pointer;
     padding: 5px 10px;
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: all 0.2s ease;
     border-radius: 5px;
 }
 
@@ -67,6 +68,7 @@
 }
 
   .green {
+    font-size: 14px;
 	margin-top: 5px;
     padding: 5px 10px;
 	background-color: green; /* Primary button color */

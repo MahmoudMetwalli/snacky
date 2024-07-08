@@ -142,15 +142,14 @@
     cursor: pointer;
     padding: 5px 10px;
     font-size: 14px;
-    transition: background-color 0.3s;
+    transition: all 0.2s ease;
     border-radius: 5px;
+    margin-top: 5px;
 }
 
-.red:hover {
-    background-color: #d9534f;
-}
 
   .green {
+    font-size: 14px;
 	margin-top: 5px;
     padding: 5px 10px;
 	background-color: green; /* Primary button color */
@@ -161,6 +160,3 @@
 	transition: all 0.2s ease; /* Smooth background color transition */
   }
 
-  .green:hover {
-	background-color: #0b7035; /* Darker shade on hover */
-}
