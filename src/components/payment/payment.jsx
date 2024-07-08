@@ -16,6 +16,7 @@ export default function Payment({ session }){
 		}
 		addOrder(userId, deliveryAddress, cart, true);
 		discardCart();
+    router.refresh();
     router.push('/orderhistory');
 	};
   return (

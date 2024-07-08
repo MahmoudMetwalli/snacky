@@ -1,10 +1,23 @@
 'use client';
+import { useContext } from 'react';
+import CartContext from '@/context/cartContext';
 import Link from 'next/link';
 import styles from './myOrders.module.css';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { deleteOrder } from '@/lib/action';
 
 export default function MyOrders({ myOrders }) {
-  
+  const { discardCart, deleteItemFromCart, addItemToCart, cart, updateCart } = useContext(CartContext);
+  const router = useRouter();
+  const retrieveOrder = (order) => {
+    discardCart();
+    updateCart(JSON.parse(order.json).cartItems);
+    if (!order.paid) {
+      deleteOrder(order.id);
+    }
+    router.push('/cart');
+  }
   if (myOrders.length !== 0) {
     return (
       <div className={styles.container}>
@@ -16,6 +29,7 @@ export default function MyOrders({ myOrders }) {
               <span>Delivery:&nbsp;{order.delivered? (<span>Delivered</span>):(<span>Not delivered yet</span>)}</span>
               <span>Delivery address:&nbsp;{order.delivery_address}</span>
               <span>Date of order:</span>{order.order_date}
+              <button className={styles.button} onClick={() => retrieveOrder(order)}>Retrieve order</button>
               {(JSON.parse(order.json).cartItems).map((item) => (
                 <div key={item.id} className={styles.cartItem}>
                   <Image src={item.photo} alt={item.name} width={200} height={200} className={styles.cartItemImg} />

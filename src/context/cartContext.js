@@ -22,6 +22,10 @@ export const CartProvider = ({ children }) => {
 		localStorage.setItem('cart', '');
 		setCartToState();
 	  };
+  const updateCart = (updatedCartItems) => {
+		localStorage.setItem('cart', JSON.stringify({cartItems: updatedCartItems}));
+		setCartToState();
+	  };
   const addItemToCart = async ({
     id,
     name,
@@ -66,6 +70,7 @@ export const CartProvider = ({ children }) => {
   discardCart,
   address,
   setAddress,
+  updateCart,
   }}
   >
 	{children}
