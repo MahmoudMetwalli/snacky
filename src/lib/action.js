@@ -196,3 +196,10 @@ export async function getMyOrders(id) {
   return myOrders.rows;
 }
 
+export async function orderPayment(id, paid) {
+  await sql`UPDATE orders SET paid = ${paid} WHERE id = ${id};`;
+}
+
+export async function orderDelivery(id, delivered) {
+  await sql`UPDATE orders SET delivered = ${delivered}  WHERE id = ${id};`;
+}
