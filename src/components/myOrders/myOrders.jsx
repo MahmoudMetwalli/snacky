@@ -25,8 +25,8 @@ export default function MyOrders({ myOrders }) {
           {myOrders.map((order) => (
             <div key={order.id} className={styles.orderContainer}>
               <span className={styles.orderHeader}>Order ID: {order.id}</span>
-              <span>Payment:&nbsp;{order.paid? (<span>Paid</span>):(<span>Not paid</span>)}</span>
-              <span>Delivery:&nbsp;{order.delivered? (<span>Delivered</span>):(<span>Not delivered yet</span>)}</span>
+              <span>Payment:&nbsp;{order.paid? (<span className={styles.green}>Paid</span>):(<span className={styles.red} >Not paid</span>)}</span>
+              <span>Delivery:&nbsp;{order.delivered? (<span className={styles.green}>Delivered</span>):(<span className={styles.red} >Not delivered yet</span>)}</span>
               <span>Delivery address:&nbsp;{order.delivery_address}</span>
               <span>Date of order:</span>{order.order_date}
               <button className={styles.button} onClick={() => retrieveOrder(order)}>Retrieve order</button>
