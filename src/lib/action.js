@@ -116,10 +116,6 @@ export async function getUser(email) {
   return user.rows[0];
 };
 
-export async function deleteUser(id) {
-  await sql`DELETE FROM users WHERE id = ${id};`;
-};
-
 export async function updatePhoneNumber (previousState, formData) {
   const { id, phoneNumber } = Object.fromEntries(formData);
   if (!phoneNumber) {
