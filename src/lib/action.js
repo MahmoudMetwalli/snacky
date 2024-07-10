@@ -172,10 +172,6 @@ export async function updateAddress (previousState, formData) {
 
 /* ORDER FUNCTIONS */
 
-export async function deleteOrder(id) {
-  await sql`DELETE FROM orders WHERE id = ${id};`;
-};
-
 export async function addOrder(userId, deliveryAddress, cart, paid) {
   const json = JSON.stringify(cart);
   const orderDate = new Date();
@@ -186,10 +182,6 @@ export async function addOrder(userId, deliveryAddress, cart, paid) {
   }
 };
 
-export async function getAllOrders() {
-  const orders = await sql`SELECT * FROM orders;`;
-  return orders.rows;
-}
 
 export async function getMyOrders(id) {
   const myOrders = await sql`SELECT * FROM orders WHERE user_id = ${id};;`;

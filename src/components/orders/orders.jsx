@@ -1,6 +1,6 @@
 'use client';
 import styles from './orders.module.css';
-import { deleteOrder, orderPayment, orderDelivery } from '@/lib/action';
+import { orderPayment, orderDelivery } from '@/lib/action';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -33,7 +33,7 @@ export default function Orders() {
   if (usersIsLoading) return <p>Loading...</p>
   const users = usersData.users; 
   const deleteOrderHandler = (id) => {
-    deleteOrder(id);
+    fetch(`/api/orders/${id}`,{ method: 'DELETE'});
     router.refresh();
   };
   const updateOrderPayment = (id, paid) => {

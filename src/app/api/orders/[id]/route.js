@@ -17,3 +17,18 @@ export async function GET(request) {
 	return NextResponse.json({ error }, { status: 500 });
   }
 }
+
+export async function DELETE(request, { params }) {
+	const { id } = params;
+	const session = await auth();
+	  if (session?.user?.admin) {
+	  try {
+		  await sql`DELETE FROM orders WHERE id = ${id};`;
+		  return NextResponse.json("Order delelted");
+	  } catch (error) {
+		  return NextResponse.json({ error }, { status: 500 });
+	  }
+	} else {
+	  return NextResponse.json({ error }, { status: 500 });
+	}
+  }

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import styles from './myOrders.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { deleteOrder } from '@/lib/action';
 
 export default function MyOrders({ myOrders }) {
   const { discardCart, deleteItemFromCart, addItemToCart, cart, updateCart } = useContext(CartContext);
@@ -14,7 +13,7 @@ export default function MyOrders({ myOrders }) {
     discardCart();
     updateCart(JSON.parse(order.json).cartItems);
     if (!order.paid) {
-      deleteOrder(order.id);
+      fetch(`/api/orders/${order.id}`,{ method: 'DELETE'});
     }
     router.push('/cart');
   }
