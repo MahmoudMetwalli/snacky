@@ -3,15 +3,18 @@ import { NextResponse } from "next/server";
 import { auth } from "../../../../../auth";
 
 
-export async function GET(request) {
+export async function POST(request) {
   const session = await auth();
-	if (session?.user?.admin) {
-	try {
-		const result = await sql`;`;
-		const users = result.rows;
-		return NextResponse.json({ users }, { status: 200 });
-	} catch (error) {
-		return NextResponse.json({ error }, { status: 500 });
+  const data = await request.json()
+  const { userId, deliveryAddress, cart, paid } = data;
+  if (session?.user?.id === userId) {
+  try {
+	  const json = JSON.stringify(cart);
+	  const orderDate = new Date();
+	  await sql`INSERT INTO orders (user_id , json, order_date, delivery_address, paid) VALUES (${userId}, ${json}, ${orderDate}, ${deliveryAddress}, ${paid});`;
+	  return NextResponse.json("Order was saved");
+  } catch (error) {
+      return NextResponse.json({ error }, { status: 500 });
 	}
   } else {
 	return NextResponse.json({ error }, { status: 500 });

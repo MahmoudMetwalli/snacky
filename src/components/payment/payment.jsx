@@ -14,7 +14,18 @@ export default function Payment({ session }){
 		if (deliveryAddress === '') {
 			deliveryAddress = session.user.address;
 		}
-		addOrder(userId, deliveryAddress, cart, true);
+		fetch('/api/orders/new', {
+      method: "POST",
+      header: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+        userId: userId,
+        deliveryAddress: deliveryAddress,
+        cart: cart,
+        paid: true
+         })
+      })
 		discardCart();
     router.refresh();
     router.push('/orderhistory');
