@@ -2,8 +2,7 @@
 import styles from './orders.module.css';
 import { orderPayment, orderDelivery } from '@/lib/action';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
 export default function Orders() {

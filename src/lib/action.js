@@ -111,26 +111,10 @@ export async function getUserFromDb(email, password) {
   return user.rows[0];
 };
 
-export async function getUserName(email) {
-  const user = await sql`SELECT * FROM users WHERE email = ${email};`
-  return user.rows[0].username;
-};
-
-export async function getAdmin(email) {
-  const user = await sql`SELECT * FROM users WHERE email = ${email};`
-  return user.rows[0].admin;
-};
-
 export async function getUser(email) {
   const user = await sql`SELECT * FROM users WHERE email = ${email};`
   return user.rows[0];
 };
-
-export async function getAllUsers() {
-  const users = await sql`SELECT * FROM users;`;
-  return users.rows;
-};
-
 
 export async function deleteUser(id) {
   await sql`DELETE FROM users WHERE id = ${id};`;

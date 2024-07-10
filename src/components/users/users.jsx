@@ -2,8 +2,7 @@
 import styles from './users.module.css';
 import { deleteUser } from '@/lib/action';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
 

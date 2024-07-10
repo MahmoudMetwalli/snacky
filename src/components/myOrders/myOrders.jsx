@@ -1,12 +1,10 @@
 'use client';
-import { useContext } from 'react';
 import CartContext from '@/context/cartContext';
 import Link from 'next/link';
 import styles from './myOrders.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 
 export default function MyOrders({ user_id }) {
@@ -25,7 +23,6 @@ export default function MyOrders({ user_id }) {
   }, [])
  
   if (isLoading) return <p>Loading...</p>
-  if (!data) return <p>No orders data</p>
   const myOrders = data.orders;
   console.log(data);
   const retrieveOrder = (order) => {
