@@ -5,7 +5,7 @@ import { auth } from "../../../../../auth";
 
 export async function GET(request) {
   const session = await auth();
-	if (request.session.token === session.token) {
+	if (session?.user?.admin) {
 	try {
 		const result = await sql`SELECT * FROM users;`;
 		const users = result.rows;

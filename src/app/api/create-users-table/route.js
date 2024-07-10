@@ -64,7 +64,7 @@ export async function GET(request) {
 	try {
 		// Create table if it doesn't exist
 		await sql`
-      CREATE TABLE IF NOT EXISTS my_table (
+      TABLE IF NOT EXISTS  (
         id SERIAL PRIMARY KEY,
         name VARCHAR(65),
         info VARCHAR(1000),

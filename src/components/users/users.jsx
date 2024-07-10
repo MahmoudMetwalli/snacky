@@ -2,15 +2,32 @@
 import styles from './users.module.css';
 import { deleteUser } from '@/lib/action';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 
-export default function Users({ users }) {
+export default function Users() {
   const router = useRouter();
   const deleteUserHandler = (id) => {
     deleteUser(id);
     router.refresh();
   };
+  const [data, setData] = useState(null)
+  const [isLoading, setLoading] = useState(true)
+ 
+  useEffect(() => {
+    fetch('/api/users/all')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+      })
+  }, [])
+ 
+  if (isLoading) return <p>Loading...</p>
+  if (!data) return <p>No profile data</p>
+  const users = data.users;
   return(<div className={styles.usersContainer}>{users.map((user) => (
     <div className={styles.users} key={user.username}>
       <span>ID:&nbsp;{user.id}</span>
