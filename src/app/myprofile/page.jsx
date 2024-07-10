@@ -1,3 +1,5 @@
+/* My profile Page */
+
 import { auth } from '../../../auth';
 import UserProfile from '@/components/userProfile/userProfile';
 import { redirect } from 'next/navigation';

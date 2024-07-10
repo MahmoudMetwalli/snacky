@@ -1,4 +1,4 @@
-
+/* Admin page */
 import styles from './admin.module.css';
 import { auth } from '../../../auth';
 import { redirect } from 'next/navigation';

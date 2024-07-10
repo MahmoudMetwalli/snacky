@@ -1,3 +1,5 @@
+/* Users api handlers */
+
 import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 import { auth } from "../../../../../auth";

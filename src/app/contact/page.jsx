@@ -1,3 +1,4 @@
+/* Contact Page */
 "use client";
 import React, { useRef, useState } from 'react';
 import styles from './contact.module.css';

@@ -1,3 +1,4 @@
+/* Home Page */
 "use client";
 import styles from './home.module.css';
 import BreakfastSection from '../components/home/breakfast'; // Step 3: Import the BreakfastSection component

@@ -1,5 +1,5 @@
+/* Loading Page */
 import styles from './home.module.css';
-
 
 const LoadingPage = () => {
 	return (

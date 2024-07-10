@@ -1,4 +1,4 @@
-
+/* Cart Page */
 import Cart from '@/components/cart/cart';
 import { auth } from '../../../auth';
 

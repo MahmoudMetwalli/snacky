@@ -1,5 +1,4 @@
-
-import Cart from '@/components/cart/cart';
+/* Payment Page */
 import { auth } from '../../../auth';
 import Payment from '@/components/payment/payment';
 
