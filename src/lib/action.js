@@ -203,3 +203,10 @@ export async function orderPayment(id, paid) {
 export async function orderDelivery(id, delivered) {
   await sql`UPDATE orders SET delivered = ${delivered}  WHERE id = ${id};`;
 }
+
+/* Menu Functions */
+
+export async function getMenu() {
+  const menu = await sql`SELECT * FROM menu;`;
+  return menu.rows;
+}
