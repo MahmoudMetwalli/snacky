@@ -9,7 +9,6 @@ export default async function MyOrdersGetter() {
   if (!session) {
 		redirect('/login');
 	}
-  const myOrders = await getMyOrders(session.user.id);
-  return(<MyOrders myOrders={myOrders}>
+  return(<MyOrders user_id={session.user.id}>
   </MyOrders>)
 }

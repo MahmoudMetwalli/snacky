@@ -5,10 +5,29 @@ import Link from 'next/link';
 import styles from './myOrders.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export default function MyOrders({ myOrders }) {
+
+export default function MyOrders({ user_id }) {
   const { discardCart, deleteItemFromCart, addItemToCart, cart, updateCart } = useContext(CartContext);
   const router = useRouter();
+  const [data, setData] = useState(null)
+  const [isLoading, setLoading] = useState(true)
+ 
+  useEffect(() => {
+    fetch(`/api/orders/${user_id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data)
+        setLoading(false)
+      })
+  }, [])
+ 
+  if (isLoading) return <p>Loading...</p>
+  if (!data) return <p>No orders data</p>
+  const myOrders = data.orders;
+  console.log(data);
   const retrieveOrder = (order) => {
     discardCart();
     updateCart(JSON.parse(order.json).cartItems);

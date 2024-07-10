@@ -2,6 +2,22 @@ import { sql } from "@vercel/postgres";
 import { NextResponse } from "next/server";
 import { auth } from "../../../../../auth";
 
+export async function GET(request, { params }) {
+	const { id } = params;
+	const user_id = parseInt(id, 10);
+	const session = await auth();
+	  if (session?.user?.id === user_id) {
+	  try {
+		const result = await sql`SELECT * FROM orders WHERE user_id = ${id}`;
+		const orders = result.rows;
+		return NextResponse.json({ orders }, { status: 200 });
+	  } catch (error) {
+		  return NextResponse.json({ error }, { status: 500 });
+	  }
+	} else {
+	  return NextResponse.json("Not available");
+	}
+  }
 
 export async function POST(request) {
   const session = await auth();

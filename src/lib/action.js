@@ -172,11 +172,6 @@ export async function updateAddress (previousState, formData) {
 
 /* ORDER FUNCTIONS */
 
-export async function getMyOrders(id) {
-  const myOrders = await sql`SELECT * FROM orders WHERE user_id = ${id};;`;
-  return myOrders.rows;
-}
-
 export async function orderPayment(id, paid) {
   await sql`UPDATE orders SET paid = ${paid} WHERE id = ${id};`;
 }
