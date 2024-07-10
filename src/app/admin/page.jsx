@@ -1,8 +1,9 @@
-import UsersGetter from '@/components/usersGetter/usersGetter';
-import OrdersGetter from '@/components/ordersGetter/ordersGetter';
+
 import styles from './admin.module.css';
 import { auth } from '../../../auth';
 import { redirect } from 'next/navigation';
+import Orders from '@/components/orders/orders';
+import Users from '@/components/users/users';
 
 export default async function AdminPage() {
 	const session = await auth();
@@ -18,13 +19,13 @@ export default async function AdminPage() {
       <div className={styles.users}>
         <h2>Users</h2>
         <div className={styles.usersContainer}>
-          <UsersGetter />
+          <Users />
         </div>
       </div>
       <div className={styles.orders}>
         <h2>Orders</h2>
         <div className={styles.ordersContainer}>
-          <OrdersGetter />
+          <Orders />
         </div>
       </div>
     </div>

@@ -2,10 +2,36 @@
 import styles from './orders.module.css';
 import { deleteOrder, orderPayment, orderDelivery } from '@/lib/action';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
-export default function Orders({ orders, users }) {
+export default function Orders() {
   const router = useRouter();
+  const [ordersData, setOrdersData] = useState(null)
+  const [ordersIsLoading, setOrdersIsLoading] = useState(true)
+  const [usersData, setusersData] = useState(null)
+  const [usersIsLoading, setUsersIsLoading] = useState(true)
+  useEffect(() => {
+    fetch('/api/orders/all')
+      .then((res) => res.json())
+      .then((data) => {
+        setOrdersData(data)
+        setOrdersIsLoading(false)
+      });
+      fetch('/api/users/all')
+      .then((res) => res.json())
+      .then((data) => {
+        setusersData(data)
+        setUsersIsLoading(false)
+      });
+  }, [])
+ 
+  if (ordersIsLoading) return <p>Loading...</p>
+  if (!ordersData) return <p>No orders data</p>
+  const orders = ordersData.orders;
+  if (usersIsLoading) return <p>Loading...</p>
+  const users = usersData.users; 
   const deleteOrderHandler = (id) => {
     deleteOrder(id);
     router.refresh();
