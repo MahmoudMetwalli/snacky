@@ -8,6 +8,7 @@ import CartContext from '@/context/cartContext';
 import Link from 'next/link';
 
 export default function Order({ menu }) {
+	const products = menu;
     const { deleteItemFromCart, addItemToCart, cart } = useContext(CartContext);
 	const addItemToCartHandler = (item) => {
 		addItemToCart({
@@ -23,7 +24,7 @@ export default function Order({ menu }) {
 	// Search bar
 	const [searchTerm, setSearchTerm] = useState('');
 	// Filter products based on search term
-	const filteredProducts = Object.values(menu).filter((product) =>
+	const filteredProducts = Object.values(products).filter((product) =>
 		product.name.toLowerCase().includes(searchTerm.toLowerCase())
 	);
 	return (
