@@ -172,17 +172,6 @@ export async function updateAddress (previousState, formData) {
 
 /* ORDER FUNCTIONS */
 
-export async function addOrder(userId, deliveryAddress, cart, paid) {
-  const json = JSON.stringify(cart);
-  const orderDate = new Date();
-  try {
-	await sql`INSERT INTO orders (user_id , json, order_date, delivery_address, paid) VALUES (${userId}, ${json}, ${orderDate}, ${deliveryAddress}, ${paid});`;
-  } catch (error) {
-	return {error: "Sorry, something went "};
-  }
-};
-
-
 export async function getMyOrders(id) {
   const myOrders = await sql`SELECT * FROM orders WHERE user_id = ${id};;`;
   return myOrders.rows;

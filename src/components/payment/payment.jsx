@@ -3,7 +3,6 @@
 import React, { useContext } from 'react';
 import styles from './payment.module.css';
 import CartContext from '@/context/cartContext';
-import { addOrder } from '@/lib/action';
 import { useRouter } from 'next/navigation';
 
 export default function Payment({ session }){
