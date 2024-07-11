@@ -74,6 +74,14 @@ export default function Orders() {
         <span>Delivery:&nbsp;{order.delivered? (<button className={styles.green} onClick={() => updateOrderDelivery(order.id, order.delivered)}>Delivered</button>):(<button className={styles.red} onClick={() => updateOrderDelivery(order.id, order.delivered)}>Not delivered yet</button>)}</span>
         <span>Date of order:</span>{order.order_date}
         <span>Delivery address:&nbsp;{order.delivery_address}</span>
+        <span>Order items:</span>
+        {(JSON.parse(order.json).cartItems).map((item) => (
+					<div key={item.id} className={styles.cartItem}>
+						<span>{item.name}&nbsp;&nbsp;</span>
+						<span>*&nbsp;{item.quantity}</span>
+					</div>
+              ))}
+        <span>Order total: {(JSON.parse(order.json).cartItems).reduce((acc, item) => acc + item.quantity * item.price, 0)}.L.E </span>
         <button onClick={() => deleteOrderHandler(order.id)} className={styles.deleteButton}>Delete</button>
       </div>
 ))}</div>);
