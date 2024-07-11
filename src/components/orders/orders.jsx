@@ -18,7 +18,7 @@ export default function Orders() {
         setOrdersData(data)
         setOrdersIsLoading(false)
       });
-      fetch('/api/users/all')
+    fetch('/api/users/all')
       .then((res) => res.json())
       .then((data) => {
         setusersData(data)
@@ -31,19 +31,19 @@ export default function Orders() {
   const orders = ordersData.orders;
   if (usersIsLoading) return <p>Loading...</p>
   const users = usersData.users; 
-  const deleteOrderHandler = (id) => {
-    fetch(`/api/orders/${id}`,{ method: 'DELETE'});
-    router.refresh();
+  const deleteOrderHandler = async (id) => {
+    await fetch(`/api/orders/${id}`,{ method: 'DELETE'});
+    location.reload();
   };
   const updateOrderPayment = (id, paid) => {
     const reversePaid = !paid;
     orderPayment(id, reversePaid);
-    router.refresh();
+    location.reload();
   };
   const updateOrderDelivery = (id, delivered) => {
     const reverseDelivered = !delivered;
     orderDelivery(id, reverseDelivered);
-    router.refresh();
+    location.reload();
   };
   const userNameGetter = (id) => {
     const user = users.find(

@@ -8,12 +8,12 @@ import { useRouter } from 'next/navigation';
 export default function Payment({ session }){
   const { discardCart, deleteItemFromCart, addItemToCart, cart, address, setAddress,} = useContext(CartContext);
   const router = useRouter();
-  const saveOrderHandler = (userId, address, cart) => {
+  const saveOrderHandler = async (userId, address, cart) => {
 		let deliveryAddress = address;
 		if (deliveryAddress === '') {
 			deliveryAddress = session.user.address;
 		}
-		fetch('/api/orders/new', {
+		await fetch('/api/orders/new', {
       method: "POST",
       header: {
         'Content-Type': 'application/json',
@@ -24,10 +24,10 @@ export default function Payment({ session }){
         cart: cart,
         paid: true
          })
-      })
+      });
 		discardCart();
-    router.refresh();
     router.push('/orderhistory');
+    router.refresh();
 	};
   return (
     <div className={styles.container}>

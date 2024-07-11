@@ -111,6 +111,7 @@ const Links = ({ session }) => {
           {session ? (
             <div className={styles.allMobile}>
               <NavLink item={{ title: 'My Profile', path: '/myprofile' }} />
+              <NavLink item={{ title: 'Order History', path: '/orderhistory' }} />
               {admin && <NavLink item={{ title: 'Admin', path: '/admin' }} />}
             </div>
           ) : (

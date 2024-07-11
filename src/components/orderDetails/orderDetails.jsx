@@ -16,12 +16,12 @@ export default function Details({ session }) {
 	const backToCart = () => {
 	  router.push('/cart');
 	}
-	const saveOrderHandler = (userId, address, cart) => {
+	const saveOrderHandler = async (userId, address, cart) => {
 	  let deliveryAddress = address;
 	  if (deliveryAddress === '') {
 		  deliveryAddress = session.user.address;
 	  }
-	  fetch('/api/orders/new', {
+	  await fetch('/api/orders/new', {
 		method: "POST",
 		header: {
 			'Content-Type': 'application/json',
@@ -32,9 +32,9 @@ export default function Details({ session }) {
 			cart: cart,
 			paid: false
 			 })
-	  })
+	  });
 	  discardCart();
-	  router.refresh();
+	  location.reload();
 	};
 	const totalAmount = cart?.cartItems?.reduce((acc, item) => acc + item.quantity * item.price, 0);
 	if (session) {

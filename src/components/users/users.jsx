@@ -7,9 +7,9 @@ import { useState, useEffect } from 'react';
 
 export default function Users() {
   const router = useRouter();
-  const deleteUserHandler = (id) => {
-    fetch(`/api/users/${id}`,{ method: 'DELETE'});
-    router.refresh();
+  const deleteUserHandler = async (id) => {
+    await fetch(`/api/users/${id}`,{ method: 'DELETE'});
+    location.reload();
   };
   const [data, setData] = useState(null)
   const [isLoading, setLoading] = useState(true)
