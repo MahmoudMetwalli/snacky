@@ -1,12 +1,10 @@
 'use client';
 import styles from './users.module.css';
-import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 
 
 export default function Users() {
-  const router = useRouter();
   const deleteUserHandler = async (id) => {
     await fetch(`/api/users/${id}`,{ method: 'DELETE'});
     location.reload();

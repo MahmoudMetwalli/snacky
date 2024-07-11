@@ -1,12 +1,10 @@
 'use client';
 import styles from './orders.module.css';
 import { orderPayment, orderDelivery } from '@/lib/action';
-import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 
 export default function Orders() {
-  const router = useRouter();
   const [ordersData, setOrdersData] = useState(null)
   const [ordersIsLoading, setOrdersIsLoading] = useState(true)
   const [usersData, setusersData] = useState(null)
