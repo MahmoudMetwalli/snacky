@@ -16,7 +16,7 @@ function Footer() {
           <p>LinkedIn</p>
         </div>
         <div className={styles.section}>
-          <h2>Contributers</h2>
+          <h2>Contributors</h2>
           <p>Ahmed Ramzy</p>
           <p>Mahmoud Metwalli</p>
           <p>Youssef Hassane</p>
