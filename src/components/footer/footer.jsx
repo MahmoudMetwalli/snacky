@@ -16,9 +16,11 @@ function Footer() {
           <p>LinkedIn</p>
         </div>
         <div className={styles.section}>
-          <h2>EMAIL</h2>
-          <p>ramzyar010277@gmail.com</p>
-          <p>mammkbih@gmail.com</p>
+          <h2>Contributers</h2>
+          <p>Ahmed Ramzy</p>
+          <p>Mahmoud Metwalli</p>
+          <p>Youssef Hassane</p>
+          <p>Ahmed Abdelhameed</p>
         </div>
         <div className={styles.section}>
           <h2>LOCATION</h2>
