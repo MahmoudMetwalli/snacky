@@ -28,7 +28,7 @@ function Footer() {
         </div>
       </div>
       <div className={styles.reserved}>
-        <p>All rights are reserved by Ahmed Ramzy and Mahmoud Metwalli</p>
+        <p>All rights are reserved by Snacky Corp</p>
       </div>
     </div>
   );
